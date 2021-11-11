@@ -3,7 +3,7 @@ import { Layout, Icon, message } from "antd";
 import router from "umi/router";
 import SiderMenu from "../components/SiderMenu/SiderMenu";
 import { getMenuData } from "../common/menu";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.webp";
 import GlobalHeader from "../components/GlobalHeader";
 import Login from "../pages/Login";
 import styles from "./index.css";

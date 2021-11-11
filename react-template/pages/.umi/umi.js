@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import findRoute, {
   getUrlQuery,
-} from '/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/findRoute.js';
+} from '/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/findRoute.js';
 
 // runtime plugins
 const plugins = require('umi/_runtimePlugin');
@@ -222,8 +222,7 @@ export default (__IS_BROWSER ? null : serverRender);
     // Umi UI Bubble
     require('../../node_modules/umi-plugin-ui/lib/bubble').default({
       port: 3001,
-      path:
-        '/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template',
+      path: '/Users/mlamp/Documents/mySpace/react-koa/react-template',
       currentProject: '',
       isBigfish: undefined,
     });

@@ -8,7 +8,7 @@ import {
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/lib/renderRoutes';
 import history from '@@/history';
-import RendererWrapper0 from '/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/pages/.umi/LocaleWrapper.jsx';
+import RendererWrapper0 from '/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/.umi/LocaleWrapper.jsx';
 
 const Router = require('dva/router').routerRedux.ConnectedRouter;
 
@@ -53,7 +53,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'pages', hasRoutesInConfig: true },
               ),
@@ -84,7 +84,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'pages', hasRoutesInConfig: true },
               ),
@@ -108,7 +108,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'pages', hasRoutesInConfig: true },
               ),
@@ -162,7 +162,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'pages', hasRoutesInConfig: true },
               ),
@@ -176,7 +176,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'pages', hasRoutesInConfig: true },
           ),
@@ -190,7 +190,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Users/mlamp/Documents/github/react-vue-koa-master/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'pages', hasRoutesInConfig: true },
       ),
