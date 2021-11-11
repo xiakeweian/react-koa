@@ -9,7 +9,7 @@ react-template (前端项目)
 
 ![react-koa-login](https://github.com/xiakeweian/react-koa/blob/master/img/react-koa-login.png)
 
-![react-koa-detail](https://github.com/xiakeweian/react-koa/blob/master/img/react-koa-detail.png)
+![react-koa-detail](https://github.com/xiakeweian/react-koa/blob/master/img/react-koa-detail1.png)
 
 ## 技术栈
 
