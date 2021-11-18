@@ -60,6 +60,10 @@ export default [
           { path: "/authority/role", component: "./Authority/Role" },
         ],
       },
+      {
+        path: "/calendar",
+        routes: [{ path: "/calendar", component: "./Calendar" }],
+      },
     ],
   },
 ];

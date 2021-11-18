@@ -52,7 +52,7 @@ const getCampaignId = async (ctx, next) => {
     .map((item) => item.campaign_id)
     .map((item) => item.slice(6))
     .sort((a, b) => b - a);
-  create_col.create({
+  const campaign_id = create_col.create({
     campaign_id:
       campaignIds && campaignIds.length > 0
         ? `CMC000${campaignIds[0] + 1}`

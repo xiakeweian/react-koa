@@ -56,7 +56,7 @@ class BasicLayout extends Component {
               logo={logo}
               collapsed={collapsed}
               currentUser={{
-                name: "Serati Ma",
+                name: "admin",
                 avatar:
                   "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
                 userid: "00000001",

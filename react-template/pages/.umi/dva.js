@@ -25,6 +25,7 @@ app.model({ namespace: 'register', ...(require('/Users/mlamp/Documents/mySpace/r
 app.model({ namespace: 'analysis', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Dashboard/models/analysis.js').default) });
 app.model({ namespace: 'campaign', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Dashboard/models/campaign.js').default) });
 app.model({ namespace: 'create', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Create/models/create.js').default) });
+app.model({ namespace: 'calendar', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Calendar/models/calendar.js').default) });
   return app;
 }
 
