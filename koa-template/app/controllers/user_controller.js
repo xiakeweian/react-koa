@@ -11,9 +11,9 @@ const register = async (ctx, next) => {
   console.log(req, "req");
   // 查看用户名是否重复
   const user = await User_col.findOne({
-    account: req.account,
+    username: req.username,
   });
-  console.log(user,'ddduser')
+  console.log(user, "ddduser");
 
   ctx.status = 200;
   if (user) {
@@ -28,8 +28,7 @@ const register = async (ctx, next) => {
   const userId = uuidv1();
   const newUser = await User_col.create({
     userId,
-    account: req.account,
-    password: req.password,
+    ...req,
   });
 
   if (newUser) {
@@ -46,7 +45,9 @@ const register = async (ctx, next) => {
         msg: "注册成功！",
         data: {
           userId: newUser.userId,
-          account: newUser.account,
+          username: newUser.username,
+          email: newUser.email,
+          nickName: newUser.nickName,
         },
       };
     }
@@ -60,7 +61,7 @@ const register = async (ctx, next) => {
 const login = async (ctx, next) => {
   const req = ctx.request.body;
   const user = await User_col.findOne({
-    account: req.account,
+    username: req.username,
   });
 
   if (!user) {
@@ -79,6 +80,9 @@ const login = async (ctx, next) => {
       msg: "登录成功",
       data: {
         userId: user.userId,
+        username: user.username,
+        email: user.email,
+        nickname: user.nickname,
       },
     };
   }

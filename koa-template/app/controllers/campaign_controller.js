@@ -12,10 +12,13 @@ const fetchList = async (ctx, next) => {
   const reg = new RegExp(req.search, "i");
   const search = req.search
     ? {
-        $or: [{ name: { $regex: reg } }, { brand: { $regex: reg } }],
+        $or: [
+          { campaign_name: { $regex: reg } },
+          { cmc_campaign_business_sector: { $regex: reg } },
+        ],
       }
     : {};
-  const campaign = await campaign_col.find(search);
+  const campaign = await campaign_col.find(search).select("-_id");
 
   const result = {
     current: Number(req.current),
@@ -50,12 +53,12 @@ const getCampaignId = async (ctx, next) => {
   const campaign = await campaign_col.find({});
   const campaignIds = campaign
     .map((item) => item.campaign_id)
-    .map((item) => item.slice(6))
+    .map((item) => item && item.slice(6))
     .sort((a, b) => b - a);
-  const campaign_id = create_col.create({
+  const campaign_id = await create_col.create({
     campaign_id:
       campaignIds && campaignIds.length > 0
-        ? `CMC000${campaignIds[0] + 1}`
+        ? `CMC000${Number(campaignIds[0]) + 1}`
         : "CMC0001",
     id: uuidv1(),
     create_time: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
@@ -65,7 +68,7 @@ const getCampaignId = async (ctx, next) => {
   ctx.body = {
     code: 1,
     msg: "success",
-    result: { id: campaign_id },
+    result: { id: campaign_id.campaign_id },
   };
 };
 
@@ -83,7 +86,6 @@ const create = async (ctx, next) => {
       ...req,
     };
     const result = await campaign_col.create(data);
-    console.log(result, "ddddresult");
 
     ctx.status = 200;
     ctx.body = {
@@ -92,10 +94,10 @@ const create = async (ctx, next) => {
       result,
     };
   } else {
-    //更新
+    // //更新
     const result = await campaign_col.updateOne(
       {
-        id: req.id,
+        _id: req.id,
       },
       { ...req, modify_time: moment(new Date()).format("YYYY-MM-DD hh:mm:ss") }
     );
@@ -120,7 +122,8 @@ const getCampaignDetail = async (ctx, next) => {
   const params = url.split("?")[1];
   const req = qs.parse(params);
   console.log(req, "dddd");
-  const result = await campaign_col.findOne({ id: req.id });
+  // const result = await campaign_col.findOne({ _id: req.id });
+  const result = await campaign_col.findOne({ _id: req.id });
   console.log(result, "ddddsss");
   ctx.status = 200;
   ctx.body = {
@@ -132,7 +135,7 @@ const getCampaignDetail = async (ctx, next) => {
 // 删除单个campaign
 const deleteCampaign = async (ctx, next) => {
   const req = ctx.request.body;
-  const result = await campaign_col.remove({ id: req.id });
+  const result = await campaign_col.deleteOne({ id: req.id });
   if (result.n === 1) {
     ctx.status === 200;
     ctx.body = {

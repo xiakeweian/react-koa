@@ -1,4 +1,4 @@
-const newData = [
+const newData1 = [
   {
     brand: "XIXI",
     date: "2021-01",
@@ -217,4 +217,81 @@ const newData = [
     id: 35,
   },
 ];
-module.exports = newData;
+const newData2 = [
+  {
+    brand: "KAKA",
+    date: "2021-12-01",
+    total: 200,
+    id: 0,
+  },
+  {
+    brand: "HAHA",
+    date: "2021-12-01",
+    total: 250,
+    id: 1,
+  },
+  {
+    brand: "XIXI",
+    date: "2021-12-01",
+    total: 350,
+    id: 2,
+  },
+  {
+    brand: "KAKA",
+    date: "2021-12-05",
+    total: 610,
+    id: 3,
+  },
+  {
+    brand: "HAHA",
+    date: "2021-12-05",
+    total: 850,
+    id: 4,
+  },
+  {
+    brand: "XIXI",
+    date: "2021-12-05",
+    total: 450,
+    id: 5,
+  },
+  {
+    brand: "KAKA",
+    date: "2021-12-15",
+    total: 100,
+    id: 6,
+  },
+  {
+    brand: "HAHA",
+    date: "2021-12-15",
+    total: 90,
+    id: 7,
+  },
+  {
+    brand: "XIXI",
+    date: "2021-12-15",
+    total: 450,
+    id: 8,
+  },
+  {
+    brand: "KAKA",
+    date: "2021-12-30",
+    total: 220,
+    id: 9,
+  },
+  {
+    brand: "HAHA",
+    date: "2021-12-30",
+    total: 150,
+    id: 10,
+  },
+  {
+    brand: "XIXI",
+    date: "2021-12-30",
+    total: 50,
+    id: 11,
+  },
+];
+module.exports = {
+  newData1,
+  newData2,
+};

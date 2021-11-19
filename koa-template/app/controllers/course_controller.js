@@ -53,7 +53,6 @@ const publishCourse = async (ctx, next) => {
   }
 
   req.id = uuid;
-  console.log(req, "ddd");
   const result = await Course_col.create(req);
 
   if (result) {

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const uuidv1 = require("uuid/v1");
 const Schema = mongoose.Schema;
 const CampaignSchema = new Schema(
   {
@@ -39,8 +39,17 @@ const CampaignSchema = new Schema(
       type: String,
     },
   },
-  { collection: "campaign", versionKey: false }
+  {
+    collection: "campaign",
+    versionKey: false,
+    autoIndex: false,
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
 );
+CampaignSchema.add({ newId: Number });
 
 //创建campaignId
 const mainCampaignIdSchema = new Schema(
@@ -54,10 +63,17 @@ const mainCampaignIdSchema = new Schema(
       type: String,
     },
   },
-  { collection: "campaignIds", versionKey: false }
+  {
+    collection: "campaignId",
+    versionKey: false,
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
 );
 const campaign_col = mongoose.model("campaign", CampaignSchema);
-const create_col = mongoose.model("campaignIds", mainCampaignIdSchema);
+const create_col = mongoose.model("campaignId", mainCampaignIdSchema);
 
 module.exports = {
   campaign_col,

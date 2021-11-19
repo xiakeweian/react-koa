@@ -3,7 +3,7 @@ const { total_col, month_col } = require("./../models/calendar");
 const qs = require("qs");
 const moment = require("moment");
 const { arrayRandomOne } = require("./../utils/util");
-const totalData = require("./data");
+const { newData1, newData2 } = require("./data");
 
 // 获取月度表现趋势数据
 const getTrendMonthList = async (ctx, next) => {
@@ -28,10 +28,11 @@ const getTrendMonthList = async (ctx, next) => {
   const result = {
     current: Number(req.current),
     pages: Math.ceil(curData.length / req.size),
-    records: curData.slice(
-      (req.current - 1) * req.size,
-      req.current * req.size
-    ),
+    records:
+      (curData &&
+        !!curData.length &&
+        curData.slice((req.current - 1) * req.size, req.current * req.size)) ||
+      [],
     size: Number(req.size),
     total: curData.length,
   };
@@ -51,9 +52,15 @@ const getTrendData = async (ctx, next) => {
 
   const newData = await total_col.find({});
   let result =
-    (await newData.length) > 0 ? newData : total_col.create(totalData);
+    (await newData.length) > 0
+      ? newData
+      : total_col.create(req.classify === "YTD" ? newData1 : newData2);
 
-  result = Array.isArray(result) ? result : totalData;
+  result = Array.isArray(result)
+    ? result
+    : req.classify === "YTD"
+    ? newData1
+    : newData2;
   const total = result
     .map((item) => item.total)
     .reduce((prev, cur) => prev + cur);
