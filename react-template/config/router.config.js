@@ -64,6 +64,10 @@ export default [
         path: "/calendar",
         routes: [{ path: "/calendar", component: "./Calendar" }],
       },
+      {
+        path: "/user-center",
+        routes: [{ path: "/user-center", component: "./UserCenter" }],
+      },
     ],
   },
 ];

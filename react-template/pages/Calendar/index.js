@@ -73,7 +73,10 @@ const Calendar = (props) => {
       <Card
         title="活动总体趋势"
         bordered={false}
-        style={{ width: "100%", marginBottom: 16 }}
+        style={{
+          width: "100%",
+          borderBottom: "16px solid #f0f2f5",
+        }}
       >
         <Radio.Group
           options={dateData}

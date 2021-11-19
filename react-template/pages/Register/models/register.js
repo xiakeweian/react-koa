@@ -7,7 +7,7 @@ export default {
 
   effects: {
     *fetchRegister({ payload, callback }, { call, put }) {
-      const response = yield call(register, { ...payload });
+      const response = yield call(register, payload);
       if (callback && typeof callback === "function") callback(response);
     },
   },

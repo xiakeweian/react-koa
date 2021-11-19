@@ -1,28 +1,28 @@
 import { Form, Icon, Input, Button, Checkbox, Message } from "antd";
 import { connect } from "dva";
 import router from "umi/router";
-import styles from "./login.css";
+import styles from "./index.css";
 
 const FormItem = Form.Item;
 
-@connect(({ login }) => ({
-  login,
+@connect(({ register }) => ({
+  register,
 }))
-class NormalLoginForm extends React.Component {
+class NormalRegisterForm extends React.Component {
   handleSubmit = (e) => {
     const { dispatch } = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        let obj = { account: values.username, password: values.password };
         dispatch({
-          type: "login/fetchLogin",
-          payload: values,
+          type: "register/fetchRegister",
+          payload: obj,
           callback: (res) => {
             if (res.code === 1) {
               Message.success(res.msg);
-              sessionStorage.setItem("token", res.data.userId);
-              router.push("/dashboard/analysis");
-              window.localStorage.setItem("user", JSON.stringify(res.data));
+              // sessionStorage.setItem("token", res.data.userId);
+              router.push("/login");
             } else {
               Message.warning(res.msg);
             }
@@ -76,15 +76,6 @@ class NormalLoginForm extends React.Component {
               htmlType="submit"
               className={styles.loginButton}
             >
-              登录
-            </Button>
-            <Button
-              type="primary"
-              className={styles.loginButton}
-              onClick={() => {
-                router.push("/register");
-              }}
-            >
               注册
             </Button>
           </FormItem>
@@ -94,6 +85,6 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
+const WrappedNormalRegisterForm = Form.create()(NormalRegisterForm);
 
-export default WrappedNormalLoginForm;
+export default WrappedNormalRegisterForm;

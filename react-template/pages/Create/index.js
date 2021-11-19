@@ -20,7 +20,6 @@ class Create extends React.Component {
       dispatch,
       match: { params },
     } = this.props;
-    console.log(this.props, "dddprops");
 
     if (!params.id) {
       getMainCampaignId().then((res) => {

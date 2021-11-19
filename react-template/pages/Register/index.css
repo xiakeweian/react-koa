@@ -11,9 +11,10 @@
   background-repeat: no-repeat;
   background-position: center 110px;
   background-size: 100%;
+  /* width: 500px; */
 }
 .loginForm {
-  width: 300px;
+  width: 500px;
 }
 .loginForgot {
   float: right;

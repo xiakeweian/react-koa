@@ -43,6 +43,14 @@ const menuData = [
       },
     ],
   },
+  {
+    name: "日历",
+    path: "calendar",
+  },
+  {
+    name: "个人中心",
+    path: "user-center",
+  },
 ];
 
 function formatter(data, parentPath = "/", parentAuthority) {

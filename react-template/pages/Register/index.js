@@ -1,90 +1,221 @@
-import { Form, Icon, Input, Button, Checkbox, Message } from "antd";
+import {
+  Form,
+  Input,
+  Tooltip,
+  Icon,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+  message,
+} from "antd";
 import { connect } from "dva";
 import router from "umi/router";
 import styles from "./index.css";
 
-const FormItem = Form.Item;
+const { Option } = Select;
+const AutoCompleteOption = AutoComplete.Option;
 
 @connect(({ register }) => ({
   register,
 }))
-class NormalRegisterForm extends React.Component {
+class RegistrationForm extends React.Component {
+  state = {
+    confirmDirty: false,
+    autoCompleteResult: [],
+  };
+
   handleSubmit = (e) => {
-    const { dispatch } = this.props;
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let obj = { account: values.username, password: values.password };
+        console.log("Received values of form: ", values);
+        const { dispatch } = this.props;
         dispatch({
           type: "register/fetchRegister",
-          payload: obj,
+          payload: values,
           callback: (res) => {
             if (res.code === 1) {
-              Message.success(res.msg);
+              message.success(res.msg);
               // sessionStorage.setItem("token", res.data.userId);
               router.push("/login");
             } else {
-              Message.warning(res.msg);
+              message.warning(res.msg);
             }
           },
         });
-      } else {
-        sessionStorage.setItem("token", "");
       }
     });
   };
 
+  handleConfirmBlur = (e) => {
+    const { value } = e.target;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  };
+
+  compareToFirstPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && value !== form.getFieldValue("password")) {
+      callback("Two passwords that you enter is inconsistent!");
+    } else {
+      callback();
+    }
+  };
+
+  validateToNextPassword = (rule, value, callback) => {
+    const { form } = this.props;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(["confirm"], { force: true });
+    }
+    callback();
+  };
+
+  handleWebsiteChange = (value) => {
+    let autoCompleteResult;
+    if (!value) {
+      autoCompleteResult = [];
+    } else {
+      autoCompleteResult = [".com", ".org", ".net"].map(
+        (domain) => `${value}${domain}`
+      );
+    }
+    this.setState({ autoCompleteResult });
+  };
+
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { autoCompleteResult } = this.state;
+
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        xs: {
+          span: 24,
+          offset: 0,
+        },
+        sm: {
+          span: 16,
+          offset: 8,
+        },
+      },
+    };
+
+    const websiteOptions = autoCompleteResult.map((website) => (
+      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
+    ));
 
     return (
       <div className={styles.loginBox}>
-        <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
-          <h3>Campaign Center</h3>
-          <FormItem>
+        <Form
+          {...formItemLayout}
+          onSubmit={this.handleSubmit}
+          className={styles.loginForm}
+        >
+          <h3 style={{ textAlign: "center" }}>Campaign Center</h3>
+          <Form.Item label="用户名">
             {getFieldDecorator("username", {
-              rules: [{ required: true, message: "请输入你的用户名!" }],
-            })(
-              <Input
-                prefix={
-                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                placeholder="用户名"
-              />
-            )}
-          </FormItem>
-          <FormItem>
+              rules: [
+                {
+                  required: true,
+                  message: "Please input username!",
+                },
+              ],
+            })(<Input />)}
+          </Form.Item>
+          <Form.Item label="E-mail">
+            {getFieldDecorator("email", {
+              rules: [
+                {
+                  type: "email",
+                  message: "The input is not valid E-mail!",
+                },
+                {
+                  required: true,
+                  message: "Please input your E-mail!",
+                },
+              ],
+            })(<Input />)}
+          </Form.Item>
+          <Form.Item label="Password" hasFeedback>
             {getFieldDecorator("password", {
-              rules: [{ required: true, message: "请输入你的密码!" }],
-            })(
-              <Input
-                prefix={
-                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                type="password"
-                placeholder="密码"
-              />
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator("remember", {
+              rules: [
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+                {
+                  validator: this.validateToNextPassword,
+                },
+              ],
+            })(<Input.Password />)}
+          </Form.Item>
+          <Form.Item label="Confirm Password" hasFeedback>
+            {getFieldDecorator("confirm", {
+              rules: [
+                {
+                  required: true,
+                  message: "Please confirm your password!",
+                },
+                {
+                  validator: this.compareToFirstPassword,
+                },
+              ],
+            })(<Input.Password onBlur={this.handleConfirmBlur} />)}
+          </Form.Item>
+          <Form.Item
+            label={
+              <span>
+                Nickname&nbsp;
+                <Tooltip title="What do you want others to call you?">
+                  <Icon type="question-circle-o" />
+                </Tooltip>
+              </span>
+            }
+          >
+            {getFieldDecorator("nickname", {
+              rules: [
+                {
+                  required: true,
+                  message: "Please input your nickname!",
+                  whitespace: true,
+                },
+              ],
+            })(<Input />)}
+          </Form.Item>
+          <Form.Item {...tailFormItemLayout}>
+            {getFieldDecorator("agreement", {
               valuePropName: "checked",
-              initialValue: true,
-            })(<Checkbox>Remember me</Checkbox>)}
-            <Button
-              type="primary"
-              htmlType="submit"
-              className={styles.loginButton}
-            >
-              注册
+            })(
+              <Checkbox>
+                I have read the <a href="">agreement</a>
+              </Checkbox>
+            )}
+          </Form.Item>
+          <Form.Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit">
+              Register
             </Button>
-          </FormItem>
+          </Form.Item>
         </Form>
       </div>
     );
   }
 }
 
-const WrappedNormalRegisterForm = Form.create()(NormalRegisterForm);
+const WrappedRegistrationForm = Form.create({ name: "register" })(
+  RegistrationForm
+);
 
-export default WrappedNormalRegisterForm;
+export default WrappedRegistrationForm;

@@ -33,14 +33,22 @@ class BasicLayout extends Component {
       collapsed: !this.state.collapsed,
     });
   };
-
+  handleClick = (e) => {
+    console.log(e, "ddddd");
+    if (e.key === "user") {
+      router.push("/user-center");
+    } else if (e.key === "logout") {
+      router.push("/login");
+      sessionStorage.clear();
+    }
+  };
   render() {
     const { children, location } = this.props;
     const { collapsed } = this.state;
     if (location.pathname === "/login") {
       return <Login></Login>;
     }
-    console.log(children, "dddchildren");
+    const user = JSON.parse(localStorage.getItem("user"));
     return (
       <Layout>
         <SiderMenu
@@ -56,13 +64,14 @@ class BasicLayout extends Component {
               logo={logo}
               collapsed={collapsed}
               currentUser={{
-                name: "admin",
+                name: user.username,
                 avatar:
                   "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
-                userid: "00000001",
+                userid: user.userId,
                 notifyCount: 12,
               }}
               onCollapse={this.handleMenuCollapse}
+              onMenuClick={this.handleClick}
             />
           </Header>
           <Content

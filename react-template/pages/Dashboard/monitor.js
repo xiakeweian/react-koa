@@ -61,6 +61,10 @@ const monitor = (props) => {
       title: "创建人",
     },
     {
+      dataIndex: "cmc_campaign_business_sector",
+      title: "业务归属",
+    },
+    {
       dataIndex: "team",
       title: "所属团队",
     },
@@ -81,7 +85,7 @@ const monitor = (props) => {
             <Divider type="vertical" />
             <a
               onClick={() => {
-                router.push(`/edit/${record.id}`);
+                router.push(`/edit/${record._id}`);
               }}
             >
               修改

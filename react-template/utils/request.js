@@ -1,5 +1,6 @@
 import axios from "axios";
 import baseUrl from "./config/index";
+import RequestForm from "./RequestForm";
 
 const codeMessage = {
   200: "服务器成功返回请求的数据。",
@@ -22,6 +23,7 @@ const codeMessage = {
 //设置axios拦截器
 axios.interceptors.request.use((config) => {
   //在utils/request里面配置了请求头
+  console.log(config, "ddddconfig");
   return config;
 });
 axios.interceptors.response.use(
@@ -37,19 +39,58 @@ axios.interceptors.response.use(
 
 function request({ url, method = "POST", data = {}, header, ...param }) {
   const token = sessionStorage.getItem("token") || "";
+
+  let newOptions = {
+    baseURL: baseUrl,
+    url,
+    method: method,
+    data,
+    headers: {
+      Authorization: token,
+    },
+  };
+  if (!(data instanceof FormData) && !(data instanceof RequestForm)) {
+    newOptions.headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+      ...newOptions.headers,
+    };
+    console.log("coming0");
+    // newOptions.data = JSON.stringify(data);
+  } else if (newOptions.data instanceof RequestForm) {
+    console.log("coming1");
+    newOptions.headers = {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
+      ...newOptions.headers,
+    };
+    newOptions.data = newOptions.data.parse();
+  } else {
+    console.log("coming2");
+    newOptions.headers = {
+      // Accept: "application/json",
+      "Content-Type": "multipart/form-data",
+      ...newOptions.headers,
+    };
+  }
+
   return new Promise((resolve, reject) => {
     axios({
-      baseURL: baseUrl,
-      url,
-      method: method,
+      mode: "no-cors",
       headers: {
         // "i-manage-token": token,
         // "X-Requested-With": "XMLHttpRequest",
-        // withCredentials: true
         "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Origin": "*",
+        ...newOptions.headers,
       },
+      // withCredentials: true,
+      // credentials: "include",
       data,
       timeOut: 10000, //配置超时10s
+      ...newOptions,
       ...param,
     }).then((res) => {
       resolve(res);
