@@ -4,6 +4,7 @@ const cors = require("koa2-cors");
 const bodyParser = require("koa-bodyparser");
 const hotMiddleware = require("koa-webpack-middleware");
 const mongoose = require("mongoose");
+const KoaStaticCache = require("koa-static-cache");
 
 const app = new Koa();
 
@@ -19,9 +20,17 @@ mongoose.connect(
   }
 );
 
-
 app.use(cors());
 app.use(bodyParser());
+
+// 静态资源处理
+app.use(
+  KoaStaticCache("./static", {
+    prefix: "/static",
+    dynamic: true,
+    gzip: true,
+  })
+);
 
 const user_router = require("./routes/api/user_router");
 const course_router = require("./routes/api/course_router");

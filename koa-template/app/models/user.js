@@ -23,6 +23,9 @@ const UserSchema = new Schema(
     nickname: {
       type: String,
     },
+    avatar: {
+      type: String,
+    },
   },
   { collection: "user", versionKey: false }
 );
