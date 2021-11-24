@@ -221,7 +221,7 @@ export default (__IS_BROWSER ? null : serverRender);
 
     // Umi UI Bubble
     require('../../node_modules/umi-plugin-ui/lib/bubble').default({
-      port: 3000,
+      port: 3002,
       path: '/Users/mlamp/Documents/mySpace/react-koa/react-template',
       currentProject: '',
       isBigfish: undefined,

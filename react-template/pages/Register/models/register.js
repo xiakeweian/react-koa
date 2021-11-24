@@ -1,4 +1,4 @@
-import { register } from "@/service/login";
+import { register } from "@/service/user";
 
 export default {
   namespace: "register",

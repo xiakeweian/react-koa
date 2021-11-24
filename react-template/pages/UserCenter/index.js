@@ -1,15 +1,49 @@
 import React from "react";
 import UploadCom from "./UploadCom";
 import { Button, Form, Input } from "antd";
+import API_ROOT from "@/utils/config";
+import { modifyUser, getUser } from "@/service/user";
 
 class UserCenter extends React.Component {
+  state = {
+    imageUrl: "",
+  };
   componentDidMount() {
     const user = JSON.parse(localStorage.getItem("user"));
-    this.props.form.setFieldsValue(user);
+
+    getUser({ userId: user.userId }).then((res) => {
+      if (res.code === 1) {
+        this.props.form &&
+          this.props.form.setFieldsValue({
+            ...res.result,
+          });
+        this.setState({
+          imageUrl: `${API_ROOT}${res.result.avatar}`,
+        });
+      }
+    });
   }
+
+  handleModify = (e) => {
+    e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        modifyUser({ ...values, userId: user.userId }).then((res) => {
+          if (res.code === 1) {
+            getUser({ userId: user.userId });
+            this.setState({
+              imageUrl: `${API_ROOT}${values.avatar}`,
+            });
+          }
+        });
+      }
+    });
+  };
   render() {
     const { form } = this.props;
     const { getFieldDecorator } = form;
+    const { imageUrl } = this.state;
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -34,7 +68,7 @@ class UserCenter extends React.Component {
     };
     return (
       <div style={{ width: 500, marginTop: 20 }}>
-        <Form {...formItemLayout}>
+        <Form {...formItemLayout} onSubmit={this.handleModify}>
           <Form.Item label="用户名">
             {getFieldDecorator("username", {
               rules: [{ required: true, message: "请输入你的用户名!" }],
@@ -52,11 +86,13 @@ class UserCenter extends React.Component {
           </Form.Item>
           <Form.Item label="头像">
             {getFieldDecorator("avatar", {
-              rules: [{ required: true, message: "请输入你的昵称" }],
-            })(<UploadCom />)}
+              rules: [{ required: true, message: "请上传头像" }],
+            })(<UploadCom imageUrl={imageUrl} />)}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary">修改</Button>
+            <Button type="primary" htmlType="submit">
+              修改
+            </Button>
           </Form.Item>
         </Form>
       </div>

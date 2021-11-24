@@ -15,6 +15,7 @@ import {
 import { connect } from "dva";
 import router from "umi/router";
 import styles from "./index.css";
+import UploadCom from "../UserCenter/UploadCom";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -193,6 +194,11 @@ class RegistrationForm extends React.Component {
                 },
               ],
             })(<Input />)}
+          </Form.Item>
+          <Form.Item label="avatar">
+            {getFieldDecorator("avatar", {
+              rules: [{ required: true, message: "请上传头像" }],
+            })(<UploadCom />)}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
             {getFieldDecorator("agreement", {
