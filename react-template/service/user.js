@@ -47,3 +47,11 @@ export async function fileUpload(data) {
     data,
   });
 }
+
+export async function downloadImg(data) {
+  return request({
+    url: `/download/userImg?${stringify(data)}`,
+    method: "get",
+    type: "blob",
+  });
+}

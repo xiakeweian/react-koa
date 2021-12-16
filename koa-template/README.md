@@ -8,7 +8,7 @@ node app.js
 ## 源码目录介绍
 ```
 ├── app                        // 主项目目录
-│   ├── controllrts            // 控制器目录
+│   ├── controller.js            // 控制器目录
 │   │   └── ...                // 各个表对应的控制器
 │   ├── middleware             // 中间件目录
 │   │   └── resFormat.js       // 格式化返回值（我目前没用） 
@@ -23,6 +23,8 @@ node app.js
 │   └── api                    // 接口目录
 │   │   ├── course_router.js   // 课程相关接口
 │   │   └── user_router.js     // 用户相关接口
+│   │   └── campaign_router.js // 活动相关接口
+│   │   └── calendar_router.js // 日历相关接口
 ├── app.js                     // 项目入口
 └── config.js                  // 基础配置信息
 ```

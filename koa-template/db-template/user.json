@@ -1,0 +1,24 @@
+{
+  "RECORDS": [
+    {
+      "_id": "6196230c2b06190ab9cec802",
+      "agreement": "true",
+      "avatar": "/static/uploads/file-17d50b37d8a.jpg",
+      "email": "307028004@qq.com",
+      "nickname": "haha",
+      "password": "123456",
+      "userId": "a69fe700-4855-11ec-ae95-4b682851feca",
+      "username": "admin"
+    },
+    {
+      "_id": "619c90298d26bea9420690bf",
+      "agreement": "true",
+      "avatar": "/static/uploads/file-17d508e0fae.jpg",
+      "email": "303030@qq.com",
+      "nickname": "haha2",
+      "password": "123456",
+      "userId": "37208be0-4c2a-11ec-89c7-29b258d1a1e3",
+      "username": "admin1"
+    }
+  ]
+}

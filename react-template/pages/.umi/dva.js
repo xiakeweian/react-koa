@@ -27,6 +27,7 @@ app.model({ namespace: 'campaign', ...(require('/Users/mlamp/Documents/mySpace/r
 app.model({ namespace: 'create', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Create/models/create.js').default) });
 app.model({ namespace: 'index', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Authority/models/index.js').default) });
 app.model({ namespace: 'calendar', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Calendar/models/calendar.js').default) });
+app.model({ namespace: 'index', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/File/models/index.js').default) });
   return app;
 }
 

@@ -26,4 +26,9 @@ router.post(
   upload.single("file"),
   upload_controller.uploadAvatar
 );
+router.post(
+  "/file/upload",
+  upload.single("file"),
+  upload_controller.uploadFile
+);
 module.exports = router;

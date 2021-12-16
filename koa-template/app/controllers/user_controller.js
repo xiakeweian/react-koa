@@ -9,7 +9,6 @@ const qs = require("qs");
 const register = async (ctx, next) => {
   console.log(ctx, "dd");
   const req = ctx.request.body;
-  console.log(req, "req");
   // 查看用户名是否重复
   const user = await User_col.findOne({
     username: req.username,
@@ -35,7 +34,7 @@ const register = async (ctx, next) => {
     // 加密
     const hash = await passport.encrypt(req.password, config.saltTimes);
     const result = await Passport_col.create({
-      userId: userId,
+      userId: newUser.userId,
       hash,
     });
 
@@ -93,7 +92,6 @@ const getUser = async (ctx, next) => {
   const url = ctx.request.url;
   console.log(url, qs.parse(url.split("?").pop()));
   const user = await User_col.findOne(qs.parse(url.split("?").pop()));
-  console.log(user, "dddduser");
   ctx.status = 200;
   const { userId, agreement, username, nickname, avatar, email } = user;
   ctx.body = {
@@ -112,7 +110,6 @@ const getUser = async (ctx, next) => {
 const getUsers = async (ctx, next) => {
   const params = ctx.request.url.split("?").pop();
   const req = qs.parse(params);
-  console.log(req, "ddddrer");
 
   const reg = new RegExp(req.search, "i");
 

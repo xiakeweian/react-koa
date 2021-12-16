@@ -23,7 +23,6 @@ const codeMessage = {
 //设置axios拦截器
 axios.interceptors.request.use((config) => {
   //在utils/request里面配置了请求头
-  console.log(config, "ddddconfig");
   return config;
 });
 axios.interceptors.response.use(
@@ -48,17 +47,73 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
     headers: {
       Authorization: token,
     },
+    ...param,
   };
+
+  if (newOptions.type === "blob") {
+    newOptions.headers = {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+      type: "blob",
+      ...newOptions.headers,
+    };
+    console.log(newOptions.type, "jjjjblob");
+
+    return new Promise((resolve, reject) => {
+      axios({
+        mode: "no-cors",
+        headers: {
+          // "i-manage-token": token,
+          // "X-Requested-With": "XMLHttpRequest",
+          "content-type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Methods": "GET",
+          "Access-Control-Allow-Origin": "*",
+          ...newOptions.headers,
+        },
+        data,
+        timeOut: 10000, //配置超时10s
+        ...newOptions,
+        ...param,
+        responseType: "arraybuffer",
+        // responseType: "stream",
+      }).then((res) => {
+        console.log(res.status, res.headers, res, "sdddd");
+
+        // return res.blob().then((blob) => {
+        //   console.log(blob, "dddblob");
+
+        //   const reader = new FileReader();
+        //   reader.readAsDataURL(blob); // 转换为base64，可以直接放入a表情href
+        //   reader.onload = async (e) => {
+        //     const contentDisposition = res.headers.get("Content-Disposition");
+        //     const fileName =
+        //       contentDisposition && contentDisposition.split("=")[1];
+        //     const a = document.createElement("a");
+        //     const decodeFileName = fileName && decodeURIComponent(fileName);
+        //     // a.download = `${newOptions.name}.${newOptions.suffix}`;
+        //     console.log(decodeFileName, "decodeFileName");
+        //     a.download =
+        //       decodeFileName || `${newOptions.name}.${newOptions.suffix}`;
+        //     a.href = e.target.result;
+        //     document.getElementById("root").append(a);
+        //     a.click();
+        //     a.remove();
+        //   };
+        // });
+
+        resolve(res);
+      });
+    });
+  }
+
   if (!(data instanceof FormData) && !(data instanceof RequestForm)) {
     newOptions.headers = {
       Accept: "application/json",
       "Content-Type": "application/json;charset=utf-8",
       ...newOptions.headers,
     };
-    console.log("coming0");
-    // newOptions.data = JSON.stringify(data);
   } else if (newOptions.data instanceof RequestForm) {
-    console.log("coming1");
     newOptions.headers = {
       Accept: "application/json",
       "Content-Type": "application/x-www-form-urlencoded",
@@ -66,7 +121,6 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
     };
     newOptions.data = newOptions.data.parse();
   } else {
-    console.log("coming2");
     newOptions.headers = {
       // Accept: "application/json",
       "Content-Type": "multipart/form-data",

@@ -4,11 +4,10 @@ const formatDate = require("./../utils/formatDate");
 const qs = require("qs");
 const moment = require("moment");
 
-const fetchList = async (ctx, next) => {
+const fetchList1 = async (ctx, next) => {
   const body = ctx.request.body;
   const params = ctx.request.url.split("?")[1];
   const req = qs.parse(params);
-
   const reg = new RegExp(req.search, "i");
   const search = req.search
     ? {
@@ -18,7 +17,7 @@ const fetchList = async (ctx, next) => {
         ],
       }
     : {};
-  const campaign = await campaign_col.find(search).select("-_id");
+  const campaign = await campaign_col.find(search);
 
   const result = {
     current: Number(req.current),
@@ -32,6 +31,49 @@ const fetchList = async (ctx, next) => {
   };
 
   if (campaign) {
+    ctx.status = 200;
+    ctx.body = {
+      code: 1,
+      msg: "success",
+      result,
+    };
+  } else {
+    ctx.status = 200;
+    ctx.body = {
+      code: 0,
+      msg: "参数错误！",
+    };
+  }
+};
+const fetchList = async (ctx, next) => {
+  const query = ctx.request.query;
+  console.log(query, "ddd");
+  const reg = new RegExp(query.search, "i");
+  const search = query.search
+    ? {
+        $or: [
+          { campaign_name: { $regex: reg } },
+          { cmc_campaign_business_sector: { $regex: reg } },
+        ],
+      }
+    : {};
+
+  const total = await campaign_col.find(search).count();
+
+  const campaign2 = await campaign_col
+    .find(search)
+    .skip(Number(query.current - 1) * Number(query.size))
+    .limit(Number(query.size));
+
+  const result = {
+    current: Number(query.current),
+    pages: Math.ceil(total / query.size),
+    records: campaign2,
+    size: Number(query.size),
+    total: total,
+  };
+
+  if (campaign2) {
     ctx.status = 200;
     ctx.body = {
       code: 1,

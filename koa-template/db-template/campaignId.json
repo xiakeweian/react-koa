@@ -1,0 +1,109 @@
+{
+  "RECORDS": [
+    {
+      "_id": "61971a4145cecd2b31ea26a1",
+      "campaign_id": "CMC0006",
+      "created_at": "",
+      "id": "ff9d6380-48e8-11ec-8e83-b7da9525f599",
+      "updated_at": ""
+    },
+    {
+      "_id": "61971a5145cecd2b31ea26a3",
+      "campaign_id": "CMC0007",
+      "created_at": "",
+      "id": "09158d70-48e9-11ec-8e83-b7da9525f599",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974aff1551bc350433b9d3",
+      "campaign_id": "CMC0001",
+      "created_at": "",
+      "id": "0cfb9b10-4906-11ec-9f0e-1bd94fe6f123",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974b424b3077357493fed4",
+      "campaign_id": "CMC0001",
+      "created_at": "",
+      "id": "34c7bf20-4906-11ec-be82-b19ee98c5d81",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974b64197ed8358ffd4b52",
+      "campaign_id": "CMC0002",
+      "created_at": "",
+      "id": "490330a0-4906-11ec-9e97-39fb0a426eea",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974b70197ed8358ffd4b54",
+      "campaign_id": "CMC0003",
+      "created_at": "",
+      "id": "505a7660-4906-11ec-9e97-39fb0a426eea",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974b79197ed8358ffd4b56",
+      "campaign_id": "CMC0004",
+      "created_at": "",
+      "id": "553ceb90-4906-11ec-9e97-39fb0a426eea",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974bad055b2535c5f020c7",
+      "campaign_id": "CMC0005",
+      "created_at": "",
+      "id": "74bc4650-4906-11ec-a7a2-833311a01099",
+      "updated_at": ""
+    },
+    {
+      "_id": "61974c00ec235736148d6a6b",
+      "campaign_id": "CMC0006",
+      "created_at": "19/11/2021 07:02:24.883",
+      "id": "a63511d0-4906-11ec-93a3-e3dcfb52a0a1",
+      "updated_at": "19/11/2021 07:02:24.883"
+    },
+    {
+      "_id": "61974c52548d573667e61b3b",
+      "campaign_id": "CMC0007",
+      "created_at": "19/11/2021 07:03:46.438",
+      "id": "d6d0c3c0-4906-11ec-a13e-351a24bf6006",
+      "updated_at": "19/11/2021 07:03:46.438"
+    },
+    {
+      "_id": "619755889cf1df3c02073791",
+      "campaign_id": "CMC0008",
+      "created_at": "19/11/2021 07:43:04.571",
+      "id": "545f2700-490c-11ec-89b8-69dfb92927f4",
+      "updated_at": "19/11/2021 07:43:04.571"
+    },
+    {
+      "_id": "61975a6c327c763f6c8368c9",
+      "campaign_id": "CMC00013",
+      "created_at": "19/11/2021 08:03:56.448",
+      "id": "3e8d56b0-490f-11ec-99ae-9bb441ae7d0b",
+      "updated_at": "19/11/2021 08:03:56.448"
+    },
+    {
+      "_id": "619772041af1f7538ad15716",
+      "campaign_id": "CMC00013",
+      "created_at": "19/11/2021 09:44:36.869",
+      "id": "4eeb85a0-491d-11ec-874d-31f5999c1970",
+      "updated_at": "19/11/2021 09:44:36.869"
+    },
+    {
+      "_id": "61977d1be42f7b5c09cb0ba3",
+      "campaign_id": "CMC00014",
+      "created_at": "19/11/2021 10:31:55.27",
+      "id": "eabcd690-4923-11ec-9d7a-796cfa7ae659",
+      "updated_at": "19/11/2021 10:31:55.27"
+    },
+    {
+      "_id": "619de037b4f8cbc80924996e",
+      "campaign_id": "CMC00015",
+      "created_at": "24/11/2021 06:48:23.7",
+      "id": "84dff870-4cf2-11ec-92a4-533eb0beb46f",
+      "updated_at": "24/11/2021 06:48:23.7"
+    }
+  ]
+}

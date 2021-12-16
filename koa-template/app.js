@@ -2,9 +2,9 @@ const Koa = require("koa");
 const config = require("./config");
 const cors = require("koa2-cors");
 const bodyParser = require("koa-bodyparser");
-const hotMiddleware = require("koa-webpack-middleware");
 const mongoose = require("mongoose");
 const KoaStaticCache = require("koa-static-cache");
+const fs = require("fs");
 
 const app = new Koa();
 
@@ -32,15 +32,17 @@ app.use(
   })
 );
 
-const user_router = require("./routes/api/user_router");
-const course_router = require("./routes/api/course_router");
-const campaign_router = require("./routes/api/campaign_router");
-const calendar_router = require("./routes/api/calendar_router");
-const upload_router = require("./routes/api/upload_router");
-app.use(user_router.routes()).use(user_router.allowedMethods());
-app.use(course_router.routes()).use(course_router.allowedMethods());
-app.use(campaign_router.routes()).use(campaign_router.allowedMethods());
-app.use(calendar_router.routes()).use(calendar_router.allowedMethods());
-app.use(upload_router.routes()).use(upload_router.allowedMethods());
+// 遍历 取代以上数据
+function routers() {
+  const files = fs.readdirSync(__dirname + "/routes/api");
+  const js_files = files.filter((f) => {
+    return f.endsWith(".js");
+  });
+  for (let f of js_files) {
+    const mapping = require(__dirname + "/routes/api/" + f);
+    app.use(mapping.routes()).use(mapping.allowedMethods());
+  }
+}
+routers();
 
 app.listen(config.port);

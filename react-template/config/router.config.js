@@ -68,6 +68,10 @@ export default [
         path: "/user-center",
         routes: [{ path: "/user-center", component: "./UserCenter" }],
       },
+      {
+        path:'/file',
+        routes:[{path:'/file',component:'./File'}]
+      }
     ],
   },
 ];

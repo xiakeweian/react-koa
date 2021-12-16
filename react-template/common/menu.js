@@ -37,10 +37,6 @@ const menuData = [
         name: "用户管理",
         path: "user",
       },
-      {
-        name: "角色管理",
-        path: "role",
-      },
     ],
   },
   {
@@ -50,6 +46,10 @@ const menuData = [
   {
     name: "个人中心",
     path: "user-center",
+  },
+  {
+    name: "文件系统",
+    path: "file",
   },
 ];
 

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const uuidv1 = require("uuid/v1");
 const totalSchema = new Schema(
   {
     date: {
