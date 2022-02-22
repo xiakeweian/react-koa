@@ -1,0 +1,59 @@
+:global {
+  .rct-item {
+    height: 400px;
+    background-color: #fff;
+    // overflow: auto;
+    padding-bottom: 10px;
+    .rct-active {
+      color: rgba(0, 104, 216, 1);
+      .rct-left {
+        color: rgba(0, 104, 216, 1);
+      }
+    }
+
+    .rct-item-row {
+      padding: 5px 10px;
+    }
+
+    .rct-item-row:hover {
+      background-color: rgba(28, 105, 212, 0.07);
+    }
+
+    .rct-checkbox {
+      .ant-checkbox {
+        padding: 4px 0;
+      }
+    }
+    .rct-flex {
+      // width: 96%;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: rgba(0, 104, 216, 1);
+      }
+      .rct-checkbox {
+        .ant-checkbox-checked {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+    .rct-label {
+      padding-left: 10px;
+      display: inline-block;
+      // width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .rct-left {
+      padding-top: 4px;
+    }
+  }
+
+  .rct-item + .rct-item {
+    border-left: 1px solid #d9d9d9;
+  }
+}

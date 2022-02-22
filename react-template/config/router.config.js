@@ -69,9 +69,26 @@ export default [
         routes: [{ path: "/user-center", component: "./UserCenter" }],
       },
       {
-        path:'/file',
-        routes:[{path:'/file',component:'./File'}]
-      }
+        path: "/file",
+        routes: [{ path: "/file", component: "./File" }],
+      },
+      {
+        path: "/custom",
+        routes: [
+          {
+            path: "/custom",
+            redirect: "/custom/custom-transfer",
+          },
+          {
+            path: "/custom/custom-transfer",
+            component: "./Custom/CustomTransfer",
+          },
+          {
+            path: "/custom/custom-cascader",
+            component: "./Custom/CustomCascader",
+          },
+        ],
+      },
     ],
   },
 ];

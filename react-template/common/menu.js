@@ -51,6 +51,20 @@ const menuData = [
     name: "文件系统",
     path: "file",
   },
+  {
+    name: "自定义组件",
+    path: "custom",
+    children: [
+      {
+        name: "自定义穿梭框",
+        path: "custom-transfer",
+      },
+      {
+        name: "自定义级联面板",
+        path: "custom-cascader",
+      },
+    ],
+  },
 ];
 
 function formatter(data, parentPath = "/", parentAuthority) {

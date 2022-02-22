@@ -246,6 +246,44 @@ const routes = [
         _title_default: 'react-pc-template',
       },
       {
+        path: '/custom',
+        routes: [
+          {
+            path: '/custom',
+            redirect: '/custom/custom-transfer',
+            exact: true,
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+          {
+            path: '/custom/custom-transfer',
+            component: require('../Custom/CustomTransfer').default,
+            exact: true,
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+          {
+            path: '/custom/custom-cascader',
+            component: require('../Custom/CustomCascader').default,
+            exact: true,
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+          {
+            component: () =>
+              React.createElement(
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                  .default,
+                { pagesPath: 'pages', hasRoutesInConfig: true },
+              ),
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+        ],
+        _title: 'react-pc-template',
+        _title_default: 'react-pc-template',
+      },
+      {
         component: () =>
           React.createElement(
             require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')

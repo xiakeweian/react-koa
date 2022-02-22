@@ -1,0 +1,108 @@
+:global {
+  ul {
+    list-style: none;
+  }
+  .custom-modal-wrap {
+    .content {
+      display: flex;
+      justify-content: flex-start;
+      height: 400px;
+      .content-left {
+        width: 120px;
+        padding-right: 10px;
+        padding-left: 10px;
+        height: 100%;
+        overflow-y: auto;
+        .custom-item {
+          .custom-item-title {
+            font-weight: bold;
+            cursor: pointer;
+          }
+          .ant-divider {
+            margin: 5px 0px;
+          }
+          > ul {
+            margin-left: 14px;
+          }
+        }
+      }
+      .content-center {
+        width: 750px;
+        padding: 12px;
+        border: 1px solid #eee;
+        height: 100%;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        .custom-center-item {
+          > p {
+            width: 100%;
+            background: #eee;
+            font-weight: bold;
+          }
+          .ant-checkbox-wrapper {
+            display: flex;
+            .ant-checkbox {
+              height: 16px;
+            }
+          }
+        }
+      }
+      .selected-change {
+        margin: 0 8px;
+        overflow: hidden;
+        vertical-align: middle;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+        .to-right {
+          margin-bottom: 10px;
+        }
+        .to-right,
+        .to-left {
+          width: 24px;
+          height: 24px;
+          padding: 0;
+          font-size: 14px;
+          border-radius: 4px;
+          border: 1px solid #eee;
+          text-align: center;
+          line-height: 24px;
+          box-sizing: border-box;
+          background: #000;
+          color: rgba(0, 0, 0, 0.25);
+          background-color: #f5f5f5;
+          border-color: #d9d9d9;
+          &.active {
+            color: #fff;
+            background-color: #1890ff;
+            border-color: #1890ff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          &:hover {
+            cursor: not-allowed;
+          }
+        }
+      }
+      .content-right {
+        height: 100%;
+        overflow-y: auto;
+        width: 200px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        padding: 20px;
+        .ant-checkbox-wrapper {
+          margin-left: 0px;
+          display: flex;
+          .ant-checkbox {
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}

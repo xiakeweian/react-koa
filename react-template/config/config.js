@@ -1,5 +1,6 @@
 // https://umijs.org/config/
 import pageRoutes from "./router.config";
+const path = require("path");
 
 const plugins = [
   [
@@ -25,8 +26,12 @@ export default {
   plugins,
   history: "hash",
   treeShaking: true, //去除引用但未使用的代码
+  hash: true,
   targets: {
     ie: 11,
+  },
+  alias: {
+    "@": path.resolve(__dirname, "pages"),
   },
   // 路由配置
   routes: pageRoutes,
@@ -42,4 +47,9 @@ export default {
     javascriptEnabled: true,
   },
   disableRedirectHoist: true,
+  manifest: {
+    basePath: "../",
+  },
+  publicPath: "./",
+  cssPublicPath: "./",
 };

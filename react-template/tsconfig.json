@@ -1,0 +1,34 @@
+{
+    "compileOnSave": false, //自动编译保存变更后的代码
+    "compilerOptions": {
+      "outDir": "./dist",
+      "module": "esnext",
+      "target": "es2016",
+      "lib": ["es2015","es6", "dom"],
+      "strict": true, //启用所有严格类型检查选项
+      "sourceMap": true,
+      "baseUrl": ".",
+      "jsx": "react",
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "rootDirs": ["./pages"],
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noUnusedLocals": true,
+      "allowJs": true,
+      "experimentalDecorators": true,
+      "paths": {
+        "@/*": ["./pages/*"]
+      }
+    },
+    "awesomeTypescriptLoaderOptions": {
+        "useWebpackText": true,
+        "useTranspileModule": true,
+        "doTypeCheck": true,
+        "forkChecker": true
+    },
+    "include": ["./pages", "config/router.config.js"],
+    "exclude": ["node_modules"]
+  }
+  
