@@ -64,10 +64,10 @@ class BasicLayout extends Component {
               logo={logo}
               collapsed={collapsed}
               currentUser={{
-                name: user.username,
+                name: user?.username,
                 avatar:
                   "https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png",
-                userid: user.userId,
+                userid: user?.userId,
                 notifyCount: 12,
               }}
               onCollapse={this.handleMenuCollapse}

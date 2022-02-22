@@ -27,3 +27,5 @@ const CourseSchema = new Schema(
 );
 
 module.exports = mongoose.model("course", CourseSchema);
+// module.exports = mongoose.model("Course", CourseSchema, "course");//默认操作course集合
+// module.exports = mongoose.model("Course", CourseSchema); 默认会操作courses集合

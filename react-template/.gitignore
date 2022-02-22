@@ -6,4 +6,5 @@ func-test/www
 *.un~
 config.local.js
 yarn.lock
-
+.git_mlamp
+.git_github

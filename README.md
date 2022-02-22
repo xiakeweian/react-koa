@@ -8,15 +8,15 @@ react-template (前端项目)
 
 ## 预览图
 
-![react-koa-login](https://github.com/xiakeweian/react-koa/blob/master/img/react-koa-login.png)
+![react-koa-login](./img/react-koa-login.png)
 
-![react-koa-detail](https://github.com/xiakeweian/react-koa/blob/master/img/react-koa-detail1.png)
+![react-koa-detail](./img/react-koa-detail1.png)
 
 ## 技术栈
 
 ```
 koa-template:
-koa + + koa-router + koa-bodyparser + koa-mutler + koa-static-cache  + mongoose +  nodemon(启动热更新) 
+koa + + koa-router + koa-bodyparser + koa-mutler + koa-static-cache  + mongoose +  nodemon(启动热更新)
 ```
 
 ```

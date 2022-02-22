@@ -15,7 +15,7 @@ const getTrendMonthList = async (ctx, next) => {
 
   const newData = new Array(20).fill(1).map((item, i) => ({
     id: i,
-    cmc_campaign_id: `CMC2021000${i + 1}`,
+    cmc_campaign_id: `ADG2021000${i + 1}`,
     campaign_name: "hhxx" + i,
     cmc_cmapaign_created_time: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
     brand_name: arrayRandomOne(brandData),
