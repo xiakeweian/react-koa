@@ -89,6 +89,10 @@ export default [
           },
         ],
       },
+      {
+        path:'/tab',
+        routes: [{ path: "/tab", component: "./Tab" }],
+      }
     ],
   },
 ];

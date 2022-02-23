@@ -4,6 +4,7 @@ import { connect } from "dva";
 import { getMainCampaignId, getMainCampaignDetail } from "@/service/create";
 import router from "umi/router";
 const { Option } = Select;
+console.log(Form, Form.useForm, "Form");
 
 @connect(({ campaign }) => ({
   campaign,
@@ -105,7 +106,7 @@ class Create extends React.Component {
       <Spin spinning={false}>
         <Form layout="vertical" onSubmit={this.handleFinish}>
           <Card
-            title="活动名称"
+            title="新建"
             bordered={false}
             style={{
               width: "100%",
@@ -113,7 +114,7 @@ class Create extends React.Component {
               borderBottom: "16px solid #f0f2f5",
             }}
           >
-            <Form.Item label={"活动主题ID"}>
+            <Form.Item label={"主ID"}>
               {getFieldDecorator("campaign_id", {
                 rules: [
                   {
@@ -135,12 +136,12 @@ class Create extends React.Component {
             <Row style={{ width: "100%" }}>
               <Col span={4}>
                 <Form.Item
-                  label={"年份"}
+                  label={"year"}
                   style={{ marginRight: 8 }}
                   rules={[
                     {
                       required: true,
-                      message: "请选择年份",
+                      message: "请选择year",
                     },
                   ]}
                 >
@@ -148,7 +149,7 @@ class Create extends React.Component {
                     rules: [
                       {
                         required: true,
-                        message: "请选择年份",
+                        message: "请选择year",
                       },
                     ],
                   })(
@@ -163,12 +164,12 @@ class Create extends React.Component {
                 </Form.Item>
               </Col>
               <Col span={8}>
-                <Form.Item label={"业务归属"}>
+                <Form.Item label={"belongTo"}>
                   {getFieldDecorator("cmc_campaign_business_sector", {
                     rules: [
                       {
                         required: true,
-                        message: "请选择业务归属",
+                        message: "请选择belongTo",
                       },
                     ],
                   })(

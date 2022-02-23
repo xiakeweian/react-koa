@@ -39,15 +39,15 @@ const monitor = (props) => {
   const columns = [
     {
       dataIndex: "campaign_id",
-      title: "活动主题ID",
+      title: "ID",
     },
     {
       dataIndex: "campaign_name",
-      title: "活动主题名称",
+      title: "Name",
     },
     {
       dataIndex: "campaign_status",
-      title: "活动主题状态",
+      title: "Status",
       render: (text, record) => {
         const status = {
           8: "待发布",
@@ -58,26 +58,26 @@ const monitor = (props) => {
     },
     {
       dataIndex: "created_by",
-      title: "创建人",
+      title: "created by",
     },
     {
       dataIndex: "cmc_campaign_business_sector",
-      title: "业务归属",
+      title: "belongTo",
     },
     {
       dataIndex: "team",
-      title: "所属团队",
+      title: "Team",
     },
     {
       dataIndex: "child_activity_count",
-      title: "活动数量",
+      title: "subCamCount",
     },
     {
       dataIndex: "modify_time",
-      title: "更新时间",
+      title: "modify_time",
     },
     {
-      title: "操作",
+      title: "Operation",
       render: (record) => {
         return (
           <>
@@ -106,7 +106,7 @@ const monitor = (props) => {
   };
   return (
     <div style={{ margin: 16 }}>
-      <h1>活动主题列表</h1>
+      <h1>主列表</h1>
       <div
         style={{
           display: "flex",

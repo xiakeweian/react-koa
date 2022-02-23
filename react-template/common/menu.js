@@ -16,7 +16,7 @@ const menuData = [
         path: "analysis",
       },
       {
-        name: "活动主题列表",
+        name: "主列表",
         path: "monitor",
       },
       {
@@ -26,7 +26,7 @@ const menuData = [
     ],
   },
   {
-    name: "创建主题活动",
+    name: "create",
     path: "create",
   },
   {
@@ -40,7 +40,7 @@ const menuData = [
     ],
   },
   {
-    name: "日历",
+    name: "趋势",
     path: "calendar",
   },
   {
@@ -64,6 +64,10 @@ const menuData = [
         path: "custom-cascader",
       },
     ],
+  },
+  {
+    name: "标签页",
+    path: "tab",
   },
 ];
 

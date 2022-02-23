@@ -14,7 +14,7 @@ const TableCom = (props) => {
       dataIndex: "cmc_campaign_id",
     },
     {
-      title: "活动名称",
+      title: "名称",
       dataIndex: "campaign_name",
     },
     {
@@ -23,11 +23,11 @@ const TableCom = (props) => {
       render: (text) => moment(text).format("YYYY-MM-DD HH:mm:ss"),
     },
     {
-      title: "品牌",
+      title: "Brand",
       dataIndex: "brand_name",
     },
     {
-      title: "创建人",
+      title: "created by",
       dataIndex: "created_by",
     },
   ];

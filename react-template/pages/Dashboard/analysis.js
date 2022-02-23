@@ -33,10 +33,10 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                 rules: [{ required: true, message: "请输入名称!" }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="品牌">
+            <Form.Item label="Brand">
               {getFieldDecorator("brand", {
                 initialValue: formData.brand,
-                rules: [{ required: true, message: "请输入品牌!" }],
+                rules: [{ required: true, message: "请输入Brand!" }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="价格">
@@ -216,12 +216,12 @@ export default class Analysis extends PureComponent {
           }}
           onChange={this.handleTableChange}
         >
-          <Column title="名称" dataIndex="name" />
-          <Column title="品牌" dataIndex="brand" />
-          <Column title="价格" dataIndex="price" />
-          <Column title="数量" dataIndex="number" />
+          <Column title="Name" dataIndex="name" />
+          <Column title="Brand" dataIndex="brand" />
+          <Column title="Price" dataIndex="price" />
+          <Column title="Quantity" dataIndex="number" />
           <Column
-            title="操作"
+            title="Operation"
             render={(text, record, index) => (
               <div>
                 <a type="link" onClick={this.handleEdit.bind(this, record)}>

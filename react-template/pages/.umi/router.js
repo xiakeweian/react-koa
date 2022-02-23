@@ -284,6 +284,30 @@ const routes = [
         _title_default: 'react-pc-template',
       },
       {
+        path: '/tab',
+        routes: [
+          {
+            path: '/tab',
+            component: require('../Tab').default,
+            exact: true,
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+          {
+            component: () =>
+              React.createElement(
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                  .default,
+                { pagesPath: 'pages', hasRoutesInConfig: true },
+              ),
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+        ],
+        _title: 'react-pc-template',
+        _title_default: 'react-pc-template',
+      },
+      {
         component: () =>
           React.createElement(
             require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')

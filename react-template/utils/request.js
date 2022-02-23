@@ -78,29 +78,6 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
         responseType: "arraybuffer",
         // responseType: "stream",
       }).then((res) => {
-        console.log(res.status, res.headers, res, "sdddd");
-
-        // return res.blob().then((blob) => {
-        //   console.log(blob, "dddblob");
-
-        //   const reader = new FileReader();
-        //   reader.readAsDataURL(blob); // 转换为base64，可以直接放入a表情href
-        //   reader.onload = async (e) => {
-        //     const contentDisposition = res.headers.get("Content-Disposition");
-        //     const fileName =
-        //       contentDisposition && contentDisposition.split("=")[1];
-        //     const a = document.createElement("a");
-        //     const decodeFileName = fileName && decodeURIComponent(fileName);
-        //     // a.download = `${newOptions.name}.${newOptions.suffix}`;
-        //     console.log(decodeFileName, "decodeFileName");
-        //     a.download =
-        //       decodeFileName || `${newOptions.name}.${newOptions.suffix}`;
-        //     a.href = e.target.result;
-        //     document.getElementById("root").append(a);
-        //     a.click();
-        //     a.remove();
-        //   };
-        // });
 
         resolve(res);
       });
@@ -140,8 +117,6 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
         "Access-Control-Allow-Origin": "*",
         ...newOptions.headers,
       },
-      // withCredentials: true,
-      // credentials: "include",
       data,
       timeOut: 10000, //配置超时10s
       ...newOptions,

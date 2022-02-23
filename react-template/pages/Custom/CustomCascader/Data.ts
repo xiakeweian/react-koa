@@ -3,7 +3,7 @@ const treeData = [
   {
     label: "1 系",
     value: "1 系",
-    parent_value: "BMW",
+    parent_value: "BenTian",
     children: [
       {
         label: "F52",
@@ -52,7 +52,7 @@ const treeData = [
   {
     label: "2 系",
     value: "2 系",
-    parent_value: "BMW",
+    parent_value: "BenTian",
     children: [
       {
         label: "E52",

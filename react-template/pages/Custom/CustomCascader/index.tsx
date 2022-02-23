@@ -15,7 +15,7 @@ const CustomCascader = () => {
  
     const [carModel,setCarModel] = useState<carModelProps>({selected:[],value:[]})
     const treeData:treeProps[] = Data
-    const titles = ['车系','车型','底盘号']
+    const titles = ['1级','2级','3级']
    
         const handleOnchange = (selecteds:any, values:Array<number | string>) => {
             setCarModel({ selected: selecteds, value: values });

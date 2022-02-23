@@ -100,8 +100,8 @@ const getCampaignId = async (ctx, next) => {
   const campaign_id = await create_col.create({
     campaign_id:
       campaignIds && campaignIds.length > 0
-        ? `CMC000${Number(campaignIds[0]) + 1}`
-        : "CMC0001",
+        ? `ABC000${Number(campaignIds[0]) + 1}`
+        : "ABC0001",
     id: uuidv1(),
     create_time: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
   });
