@@ -1,7 +1,8 @@
-import { Form, Icon, Input, Button, Checkbox, Message } from "antd";
+import { Icon, Input, Button, Checkbox, Message } from "antd";
 import { connect } from "dva";
 import router from "umi/router";
 import styles from "./login.css";
+import { Form } from "@ant-design/compatible";
 
 const FormItem = Form.Item;
 

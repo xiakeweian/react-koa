@@ -10,6 +10,21 @@ const getCourse = async (ctx, next) => {
   const courses = await Course_col.find({
     $or: [{ name: { $regex: reg } }, { brand: { $regex: reg } }],
   });
+  Course_col.aggregate(
+    [
+      {
+        $match: {
+          number: { $gte: 50 },
+        },
+        // $sort: {
+        //   number: 1,
+        // },
+      },
+    ],
+    function (err, docs) {
+      console.log(docs, "ff");
+    }
+  );
 
   const result = {
     current: req.current,

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Select, Modal, Card, Spin, Row, Col, Button } from "antd";
+import { Input, Select, Modal, Card, Spin, Row, Col, Button } from "antd";
 import { connect } from "dva";
 import { getMainCampaignId, getMainCampaignDetail } from "@/service/create";
 import router from "umi/router";
+import { Form } from "@ant-design/compatible";
 const { Option } = Select;
-console.log(Form, Form.useForm, "Form");
 
 @connect(({ campaign }) => ({
   campaign,

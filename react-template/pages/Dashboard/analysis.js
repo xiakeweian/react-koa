@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import router from "umi/router";
-import { Button, Table, Modal, Form, Input, Message, Divider } from "antd";
+import { Button, Table, Modal, Input, Message, Divider } from "antd";
 import { connect } from "dva";
+import { Form } from "@ant-design/compatible";
 
 const { Column } = Table;
 

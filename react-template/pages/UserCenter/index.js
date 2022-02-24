@@ -1,8 +1,9 @@
 import React from "react";
 import UploadCom from "./UploadCom";
-import { Button, Form, Input } from "antd";
+import { Button, Input } from "antd";
 import API_ROOT from "@/utils/config";
 import { modifyUser, getUser } from "@/service/user";
+import { Form } from "@ant-design/compatible";
 
 class UserCenter extends React.Component {
   state = {

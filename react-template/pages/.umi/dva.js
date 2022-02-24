@@ -23,6 +23,7 @@ export function _onCreate() {
   app.model({ namespace: 'login', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Login/models/login.js').default) });
 app.model({ namespace: 'register', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Register/models/register.js').default) });
 app.model({ namespace: 'analysis', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Dashboard/models/analysis.js').default) });
+app.model({ namespace: 'article', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Dashboard/models/article.js').default) });
 app.model({ namespace: 'campaign', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Dashboard/models/campaign.js').default) });
 app.model({ namespace: 'create', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Create/models/create.js').default) });
 app.model({ namespace: 'index', ...(require('/Users/mlamp/Documents/mySpace/react-koa/react-template/pages/Authority/models/index.js').default) });

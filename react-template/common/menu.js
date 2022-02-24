@@ -23,6 +23,10 @@ const menuData = [
         name: "工作台",
         path: "workplace",
       },
+      {
+        name: "文章列表",
+        path: "article",
+      },
     ],
   },
   {

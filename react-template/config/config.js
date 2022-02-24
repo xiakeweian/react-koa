@@ -31,7 +31,7 @@ export default {
     ie: 11,
   },
   alias: {
-    "@": path.resolve(__dirname, "pages"),
+    // "@": path.resolve(__dirname, "pages"),
   },
   // 路由配置
   routes: pageRoutes,

@@ -13,6 +13,7 @@ const CampaignSchema = new Schema(
     },
     campaign_name: {
       type: String,
+      trim: true, //添加trim,相当于使名字左右去掉空格
     },
     campaign_en_name: {
       type: String,

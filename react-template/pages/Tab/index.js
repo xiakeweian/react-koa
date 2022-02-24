@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import { Tabs, Form, Input, Button } from "antd";
+import { Tabs, Input, Button } from "antd";
+
+import { Form } from "@ant-design/compatible";
 
 const { TabPane } = Tabs;
 

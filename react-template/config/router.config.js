@@ -40,6 +40,12 @@ export default [
         ],
       },
       {
+        path: "/dashboard/article",
+        routes: [
+          { path: "/dashboard/article", component: "./Dashboard/article" },
+        ],
+      },
+      {
         path: "/create",
         name: "create",
         component: "./Create",
@@ -90,9 +96,9 @@ export default [
         ],
       },
       {
-        path:'/tab',
+        path: "/tab",
         routes: [{ path: "/tab", component: "./Tab" }],
-      }
+      },
     ],
   },
 ];

@@ -1,5 +1,4 @@
 import {
-  Form,
   Input,
   Tooltip,
   Icon,
@@ -16,6 +15,7 @@ import { connect } from "dva";
 import router from "umi/router";
 import styles from "./index.css";
 import UploadCom from "../UserCenter/UploadCom";
+import { Form } from "@ant-design/compatible";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;

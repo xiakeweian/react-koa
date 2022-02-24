@@ -98,6 +98,7 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
     if (!dataSource.length || !props.value.length) {
       return;
     }
+   
     // 初始化的时候，要看看子节点是否全被选中，如果全被选中，只需传他本身的value，如果子节点只是选中部分，则要把自己设置成不选择的状态
     const flatDataSource = flatTree(dataSource);
     const selectedArr = props.value

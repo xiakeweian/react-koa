@@ -10,6 +10,7 @@ const app = new Koa();
 
 mongoose.connect(
   config.db,
+  //useNewUrlParser这个属性会识别验证用户所需的db，未升级前不需要指定，升级后需要指定
   { useNewUrlParser: true, keepAlive: 120 },
   (err) => {
     if (err) {

@@ -60,6 +60,7 @@ const fetchList = async (ctx, next) => {
 
   const total = await campaign_col.find(search).count();
 
+  //skip，limit
   const campaign2 = await campaign_col
     .find(search)
     .skip(Number(query.current - 1) * Number(query.size))
