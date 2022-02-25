@@ -3,6 +3,7 @@ import router from "umi/router";
 import { Button, Table, Modal, Input, Message, Divider } from "antd";
 import { connect } from "dva";
 import { Form } from "@ant-design/compatible";
+import '@ant-design/compatible/assets/index.css';
 
 const { Column } = Table;
 

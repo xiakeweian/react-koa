@@ -4,6 +4,7 @@ import { Tabs, Input, Button } from "antd";
 
 import { Form } from "@ant-design/compatible";
 
+import '@ant-design/compatible/assets/index.css';
 const { TabPane } = Tabs;
 
 let newTabIndex = 1;

@@ -4,6 +4,7 @@ import { Button, Input } from "antd";
 import API_ROOT from "@/utils/config";
 import { modifyUser, getUser } from "@/service/user";
 import { Form } from "@ant-design/compatible";
+import "@ant-design/compatible/assets/index.css";
 
 class UserCenter extends React.Component {
   state = {

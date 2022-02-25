@@ -4,6 +4,7 @@ import { connect } from "dva";
 import { getMainCampaignId, getMainCampaignDetail } from "@/service/create";
 import router from "umi/router";
 import { Form } from "@ant-design/compatible";
+import '@ant-design/compatible/assets/index.css';
 const { Option } = Select;
 
 @connect(({ campaign }) => ({

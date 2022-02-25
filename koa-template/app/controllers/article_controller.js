@@ -23,12 +23,12 @@ const list = async (ctx, next) => {
   article_col.aggregate(
     [
       {
-        $lookup: {
-          from: "articleCate",
-          localField: "articlecate",
-          foreignField: "id",
-          as: "cate",
-        },
+        // $lookup: {
+        //   from: "articleCate",
+        //   localField: "articlecate",
+        //   foreignField: "id",
+        //   as: "cateList",
+        // },
         $lookup: {
           from: "user",
           localField: "author_id",

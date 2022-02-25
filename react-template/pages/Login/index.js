@@ -3,6 +3,7 @@ import { connect } from "dva";
 import router from "umi/router";
 import styles from "./login.css";
 import { Form } from "@ant-design/compatible";
+import "@ant-design/compatible/assets/index.css";
 
 const FormItem = Form.Item;
 
@@ -41,7 +42,7 @@ class NormalLoginForm extends React.Component {
     return (
       <div className={styles.loginBox}>
         <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
-          <h3>Campaign Center</h3>
+          <h3>Management Center</h3>
           <FormItem>
             {getFieldDecorator("username", {
               rules: [{ required: true, message: "请输入你的用户名!" }],

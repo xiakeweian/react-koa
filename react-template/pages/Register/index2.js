@@ -40,7 +40,7 @@ class NormalRegisterForm extends React.Component {
     return (
       <div className={styles.loginBox}>
         <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
-          <h3>Campaign Center</h3>
+          <h3>Management Center</h3>
           <FormItem>
             {getFieldDecorator("username", {
               rules: [{ required: true, message: "请输入你的用户名!" }],

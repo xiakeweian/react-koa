@@ -16,6 +16,7 @@ import router from "umi/router";
 import styles from "./index.css";
 import UploadCom from "../UserCenter/UploadCom";
 import { Form } from "@ant-design/compatible";
+import "@ant-design/compatible/assets/index.css";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -124,7 +125,7 @@ class RegistrationForm extends React.Component {
           onSubmit={this.handleSubmit}
           className={styles.loginForm}
         >
-          <h3 style={{ textAlign: "center" }}>Campaign Center</h3>
+          <h3 style={{ textAlign: "center" }}>Management Center</h3>
           <Form.Item label="用户名">
             {getFieldDecorator("username", {
               rules: [
