@@ -4,6 +4,7 @@ import { Button, Table, Input, Upload, message } from "antd";
 import { downloadList } from "@/service/file";
 import { connect } from "dva";
 import moment from "moment";
+import API_ROOT from "@/utils/config";
 import styles from "./index.less";
 
 const File = (props) => {
@@ -23,7 +24,7 @@ const File = (props) => {
   //导出列表
   const download = () => {
     downloadList();
-    // window.open("http://localhost:3000/download/file-list", "_blank");
+    // window.open(`${API_ROOT}/download/file-list`, "_blank");
   };
   //下载文件
   const downloadFile = () => {};
@@ -68,9 +69,10 @@ const File = (props) => {
       },
     },
   ];
+
   const uploadProps = {
     name: "file",
-    action: "http://localhost:3000/file/upload",
+    action: `${API_ROOT}/file/upload`,
     accept: ".xlsx,.xls,.docx,.doc,.pdf,.pptx,.png,.jpeg,.jpg,.mp4,.mov",
     method: "post",
     onChange(info) {

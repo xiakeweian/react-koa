@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "umi dev",
+    "start": "cross-env set_mock=false umi dev",
+    "start:mock": "cross-env set_mock=true umi dev",
     "build": "umi build"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "dva": "^2.4.1",
     "lodash": "^4.17.10",
     "lodash-decorators": "^5.0.0",
+    "mockjs": "^1.1.0",
     "moment": "^2.22.1",
     "path-to-regexp": "^1.7.0",
     "qs": "^6.10.1",
@@ -28,6 +30,7 @@
     "@types/history": "^4.7.11",
     "@types/react": "^16.14.23",
     "@types/react-dom": "^16.9.14",
+    "cross-env": "^7.0.3",
     "less": "^4.1.2"
   }
 }

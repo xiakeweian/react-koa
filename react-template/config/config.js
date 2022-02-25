@@ -2,6 +2,16 @@
 import pageRoutes from "./router.config";
 const path = require("path");
 
+let port;
+let apiUrl;
+if (process.env.set_mock === "true") {
+  port = 8000;
+} else {
+  port = 3000;
+}
+const url = `http://localhost:${port}`;
+apiUrl = `${url}`;
+
 const plugins = [
   [
     "umi-plugin-react",
@@ -30,6 +40,9 @@ export default {
   targets: {
     ie: 11,
   },
+  define: {
+    DEFINE_URL: url,
+  },
   alias: {
     // "@": path.resolve(__dirname, "pages"),
   },
@@ -37,7 +50,8 @@ export default {
   routes: pageRoutes,
   proxy: {
     "/api": {
-      target: "http://localhost:3000",
+      // target: "http://localhost:3000",
+      target: apiUrl,
       changeOrigin: true,
       pathRewrite: { "^/api": "" },
     },

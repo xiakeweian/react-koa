@@ -3,9 +3,11 @@ import router from "umi/router";
 import { Button, Table, Modal, Input, Message, Divider } from "antd";
 import { connect } from "dva";
 import { Form } from "@ant-design/compatible";
-import '@ant-design/compatible/assets/index.css';
+import "@ant-design/compatible/assets/index.css";
 
 const { Column } = Table;
+
+console.log(global, "ffffeee");
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line

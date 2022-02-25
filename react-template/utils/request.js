@@ -78,7 +78,6 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
         responseType: "arraybuffer",
         // responseType: "stream",
       }).then((res) => {
-
         resolve(res);
       });
     });
@@ -121,9 +120,14 @@ function request({ url, method = "POST", data = {}, header, ...param }) {
       timeOut: 10000, //配置超时10s
       ...newOptions,
       ...param,
-    }).then((res) => {
-      resolve(res);
-    });
+    })
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((err) => {
+        console.log(err, "kkkk");
+        reject(err.data);
+      });
   });
 }
 

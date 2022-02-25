@@ -71,21 +71,21 @@ const Calendar = (props) => {
   return (
     <div className={styles.calendar}>
       <Card
-        title="活动总体趋势"
+        title="趋势图"
         bordered={false}
         style={{
           width: "100%",
           borderBottom: "16px solid #f0f2f5",
         }}
       >
-        <Radio.Group
+        {/* <Radio.Group
           options={dateData}
           onChange={handleChange}
           value={dateType}
           optionType="button"
           style={{ marginRight: 16 }}
-        />
-        <RangePicker
+        /> */}
+        {/* <RangePicker
           disabled={dateType !== "custom"}
           onChange={rangePickerChange}
         />
@@ -108,10 +108,10 @@ const Calendar = (props) => {
               <p>{total?.motorrad_total}</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <BarChart data={data} />
       </Card>
-      <Card title="活动月度表现趋势" bordered={false} style={{ width: "100%" }}>
+      {/* <Card title="月度表现趋势" bordered={false} style={{ width: "100%" }}>
         <TableCom
           title="本月上线"
           data={trendList}
@@ -136,7 +136,7 @@ const Calendar = (props) => {
             )
           }
         />
-      </Card>
+      </Card> */}
     </div>
   );
 };

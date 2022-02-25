@@ -2,7 +2,7 @@
  * @Author: wuyanxia
  * @Date: 2021-11-11 18:53:17
  * @Last Modified by: wuyanxia
- * @Last Modified time: 2021-11-25 10:14:49
+ * @Last Modified time: 2022-02-25 17:55:42
  */
 import React, { useState, useEffect } from "react";
 import { Table } from "antd";
@@ -21,7 +21,7 @@ const User = (props) => {
     console.log(url, "ddd");
     // downloadImg({ url });
 
-    window.open("http://localhost:3000/download/userImg?url=" + url, "_blank");
+    window.open(`${API_ROOT}/download/userImg?url=${url}`, _blank);
   };
 
   const columns = [
