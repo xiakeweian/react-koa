@@ -15,6 +15,7 @@ class NormalLoginForm extends React.Component {
     const { dispatch } = this.props;
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
+
       if (!err) {
         dispatch({
           type: "login/fetchLogin",
@@ -22,6 +23,7 @@ class NormalLoginForm extends React.Component {
           callback: (res) => {
             if (res.code === 1) {
               Message.success(res.msg);
+              console.log("coming");
               sessionStorage.setItem("token", res.data.userId);
               router.push("/dashboard/analysis");
               window.localStorage.setItem("user", JSON.stringify(res.data));

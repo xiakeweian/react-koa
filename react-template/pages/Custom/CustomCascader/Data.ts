@@ -87,7 +87,18 @@ const treeData = [
         value: "E54",
         parent_value: "2 系",
         children: [
-          { label: "E54_1", value: "E54_1", parent_value: "E54" },
+          { label: "E54_1", value: "E54_1", parent_value: "E54",
+          children:[{
+            label:'E54_1_1',value:'E54_1_1',parent_value:'E54_1',children:[
+              { label:'E54_1_1_1',value:'E54_1_1_1',parent_value:'E54_1_1'},
+              { label:'E54_1_1_2',value:'E54_1_1_2',parent_value:'E54_1_1'},
+              { label:'E54_1_1_3',value:'E54_1_1_3',parent_value:'E54_1_3'},
+            ]},
+            {label:'E54_1_2',value:'E54_1_2',parent_value:'E54_1'},
+            {label:'E54_1_3',value:'E54_1_3',parent_value:'E54_1'},
+            {label:'E54_1_4',value:'E54_1_4',parent_value:'E54_1'},
+            {label:'E54_1_5',value:'E54_1_5',parent_value:'E54_1'},
+          ]},
           { label: "E54_2", value: "E54_2", parent_value: "E54" },
           { label: "E54_3", value: "E54_3", parent_value: "E54" },
           { label: "E54_4", value: "E54_4", parent_value: "E54" },

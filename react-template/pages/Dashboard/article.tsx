@@ -61,14 +61,8 @@ const [selectCateName,setSelectCateName] = useState<string>('')
 },
 {
     title:'文章类别',
-    dataIndex:'articlecate',
-    render:(text,record) => {
-
-        const data = cateData.find((item) => item.id === text)
-        console.log(data,'fff')
-        return data?.articlecate
-    }
-    },
+    dataIndex:'cate_name',
+ },
 {
   
     title:'描述',
@@ -166,9 +160,16 @@ const handleOk = (e:any) => {
     e.preventDefault();
     form.validateFields()
       .then((values:any) => {
-    
+          console.log(selectCateName,'fffff')
 
-        create({...values,type,author:currentUser.username,author_id:currentUser.userId }).then((res:any) => {
+
+
+          let params = {...values,type,author:currentUser.username,author_id:currentUser.userId}
+          if(type === 'article'){
+            params.cate_name = selectCateName
+          }
+    
+        create(params).then((res:any) => {
         
             if(res.code === 1) {
                 setCateVisible(false)
@@ -227,7 +228,7 @@ return <div>
             <Form.Item label='描述' name='desc'>
             <Input.TextArea/>
             </Form.Item>
-            <Form.Item label='文章类别名称' name='articlecate' rules={[{ required: true }]}>
+            <Form.Item label='文章类别名称' name='cate_id' rules={[{ required: true }]}>
             <Select onChange={handleCateChange}>
                 {cateData?.map((item) => <Option value={item.id} >{item.articlecate}</Option>)}
             </Select>

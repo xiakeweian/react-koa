@@ -119,7 +119,7 @@ const create = async (ctx, next) => {
         id: uuidv1(),
         create_time: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
         title,
-        articlecate,
+        cate_id:articlecate,
         ...rest,
       });
       console.log(result, "gggddddd");

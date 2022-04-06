@@ -93,6 +93,15 @@ export default [
             path: "/custom/custom-cascader",
             component: "./Custom/CustomCascader",
           },
+          {
+            path: "/custom/custom-role",
+            component: "./Custom/CustomRole",
+          },
+          {
+            path: "/custom/custom-select-cascader",
+            component: "./Custom/CustomSelectCascader",
+          },
+          // custom-role
         ],
       },
       {

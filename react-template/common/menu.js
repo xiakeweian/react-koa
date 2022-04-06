@@ -67,6 +67,14 @@ const menuData = [
         name: "自定义级联面板",
         path: "custom-cascader",
       },
+      {
+        name: "自定义角色管理",
+        path: "custom-role",
+      },
+      {
+        name: "自定义选择级联",
+        path: "custom-select-cascader",
+      },
     ],
   },
   {

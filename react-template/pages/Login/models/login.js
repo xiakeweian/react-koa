@@ -8,6 +8,7 @@ export default {
   effects: {
     *fetchLogin({ payload, callback }, { call, put }) {
       const response = yield call(login, { ...payload });
+      console.log(response, "gggresponse");
       if (callback && typeof callback === "function") callback(response);
     },
   },

@@ -17,6 +17,8 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
   const { width, selectedWidth, titles, onChange } = props;
   const [expandData, setExpandData] = useState<DataProps[][]>();
 
+  console.log(value,selected,'ffffssss')
+
   /**
    *
    * @param data
@@ -98,6 +100,7 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
     if (!dataSource.length || !props.value.length) {
       return;
     }
+    console.log(props.value,'ggggg')
    
     // 初始化的时候，要看看子节点是否全被选中，如果全被选中，只需传他本身的value，如果子节点只是选中部分，则要把自己设置成不选择的状态
     const flatDataSource = flatTree(dataSource);
@@ -108,10 +111,11 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
         if(!curData) return
         const {level} = curData;
         const curLevelAllData = flatDataSource.filter(item => item.level === level);
-
+      console.log(selectedItem,'selectedItem')
         handleSetChecked(selectedItem, true);
-
+  
         const curLevelIsAllChecked = curLevelAllData.slice(1).every(item => item.checked === true);
+        console.log(curLevelIsAllChecked,'curLevelIsAllChecked')
         if (curLevelIsAllChecked) {
           handleSetChecked(curLevelAllData[0], true);
         }
@@ -120,6 +124,7 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
       })
       .filter((dataItem: DataProps) => !!dataItem);
 
+    setValue(props.value);
     setSelected(selectedArr);
     setDataSource(dataSource);
   }, [dataSource, props.value]);
@@ -197,14 +202,17 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
 
       const expandDataChildren = expandData[rowData.level];
 
+      const parentData = flatSameRootData.filter((item) => item.value === rowData.prevParent)
+
       const commonLevelData = flatTree(expandDataChildren).filter(
         (item: DataProps) => item.level === rowData.level
       );
+    
       const commonLevelParent = commonLevelData[1];
       const commonLevelParentValue = commonLevelParent.parentId;
       // console.log(expandDataChildren,commonLevelData,commonLevelParent,commonLevelParentValue,'llllll')
       // 全选先被选中，然后其他兄弟节点全部被选中，然后遍历全部数据，当前节点的children全部被选中的话，当前节点也被选中
-
+      console.log(parentData,commonLevelData,commonLevelParent,commonLevelParentValue,'kkk')
       new Promise((resolve, reject) => {
         flatSameRootData.map(data => {
           if (data.value === rowData.value) {
@@ -261,6 +269,10 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
                   // 如果取消会影响祖先元素，则也会影响上级节点的兄弟节点，如果不影响祖先元素，则也不会影响上级节点的兄弟节点
                   // 是否影响祖先元素，决定取消选中是否影响上级节点的兄弟节点
                   const prevParentSiblings = highestLevelNode.children.slice(1).filter((chi) => chi.value !== rowData.prevParent)
+                  const prevParentSiblings2 = flatSameRootData.filter((item) => item.parentId === parentData[0].parentId) 
+
+                  const b = prevParentSiblings2.slice(1).filter((item) => item.value !== parentData[0].value)
+               
       
                   // 1.父节点的兄弟节点已全部被选中；取消会影响父组件，将兄弟节点都取出来，取消当前级别全选，不能影响父级兄弟节点的选中状态
                   // 2.父节点的兄弟节点已部分被选中；取消不会影响父组件，将兄弟节点都取出来，取消当前级别全选，不能影响父级兄弟节点的选中状态
@@ -268,8 +280,9 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
                   // 选中数据中是否包含rootValue，如果包含，取消的时候父节点的兄弟节点保留选中状态，选中数据不包含rootValue,取消的时候父级兄弟节点不受影响
 
                   const prevParentSiblingsChildren  = []
-                  prevParentSiblings.map((sib) => {
-                    prevParentSiblingsChildren.push(...sib.children)
+                
+                  b.map((sib) => {
+                    sib.children && prevParentSiblingsChildren.push(...sib.children)
                   })
 
                  const isTrue =  prevParentSiblings.some((sib) => value.includes(sib.parentId))
@@ -300,6 +313,7 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
 
           newSelected = flatSameRootData.filter(item => item.checked === true);
           newSelected =  getSelectData(newSelected);
+          console.log(newSelected,'newSelected')
 
           newValues = newSelected?.map(item => item.value);
 

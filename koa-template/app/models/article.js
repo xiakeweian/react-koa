@@ -39,7 +39,10 @@ const articleSchema = new Schema(
     desc: {
       type: String,
     },
-    articlecate: {
+    cate_id: {
+      type: String,
+    },
+    cate_name: {
       type: String,
     },
     author: {
