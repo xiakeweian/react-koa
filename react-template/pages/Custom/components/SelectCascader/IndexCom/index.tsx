@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Select, Tag, Modal } from "antd";
 import { CloseOutlined, ExclamationCircleFilled } from "@ant-design/icons";
 import { formatMessage } from "umi/locale";
-import ReactCascaderTransfer from "../ReactCascaderTransfer";
-import { flattenTree } from '../../../../utils/utils';
+import ReactCascaderTransfer from "../../ReactCascaderTransfer";
+import { flattenTree } from '../../../../../utils/utils';
 const { Option } = Select;
 const SelectCascader = (props:any) => {
-  const { data, titles, width,carModel, setCarModel,key,isConnectParentLabel } = props;
+  const { data, titles, width,carModel, setCarModel,key } = props;
   const [visible,setVisible] = useState(false);
 
   const handleOnchange = (selecteds: any, values: Array<number | string>) => {
@@ -53,7 +53,7 @@ const SelectCascader = (props:any) => {
 
 
   const tagRender = (props) => {
-    const { label, onClose, } = props;
+    const { label, onClose,isConnectParentLabel } = props;
     const onPreventMouseDown = (event) => {
       event.preventDefault();
       event.stopPropagation();
@@ -83,6 +83,7 @@ const SelectCascader = (props:any) => {
         style={{ marginRight: 3, marginBottom: 3 }}
       >
         {isConnectParentLabel ? newLabel : label}
+        {newLabel}
         <CloseOutlined
           style={{ marginLeft: 4, fontSize: 10, color: "#00000073" }}
           onClick={() => {

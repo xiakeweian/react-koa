@@ -41,36 +41,44 @@ const ListItem = (props: ListItemProps) => {
         .every((item: DataProps) => item.checked === true);
 
       if (isTopLevelIndeterminate2) {
+        console.log(rowData, isTopLevelIndeterminate2, "rowData1");
         return false;
       }
       if (isTopLevelIndeterminate) {
+        console.log(rowData, isTopLevelIndeterminate, "rowData2");
         return true;
       }
+      console.log(rowData, "rowData3");
       return false;
     }
 
     if (rowData.label === "全选") {
       const flatData = flatTree(itemDataSource);
+      console.log(flatData, rowData, "dfdff");
 
       const aa = flatData.filter(
         (item) =>
           item.level === rowData.level &&
-          item.parent_value === rowData.prevParent &&
-          item.value !== rowData.value
+          item.parentId === rowData.prevParent &&
+          item.label !== "全选"
       );
-
-      const bb = flatTree(aa).filter((item) => item.label !== "全选");
       const isIndeterminate =
-        !bb.every((item) => item.checked === true) &&
-        !bb.every((item) => item.checked === false);
+        !aa.every((item) => item.checked === true) &&
+        !aa.every((item) => item.checked === false);
+
+      console.log(rowData, isIndeterminate, "rowData4");
       return isIndeterminate;
     }
+
     if (rowData.children && !!rowData.children.length) {
       const flatChildrenData = flatTree(rowData.children);
 
       const isIndeterminate =
         flatChildrenData.some((item: DataProps) => item.checked === true) &&
         flatChildrenData.some((item: DataProps) => item.checked === false);
+
+      console.log(isIndeterminate, curSelectData, "isIndeterminate");
+
       return isIndeterminate;
     }
   };

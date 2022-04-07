@@ -17,8 +17,6 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
   const { width, selectedWidth, titles, onChange } = props;
   const [expandData, setExpandData] = useState<DataProps[][]>();
 
-  console.log(value,selected,'ffffssss')
-
   /**
    *
    * @param data
@@ -97,13 +95,23 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
   // flat the dataSource, find all the initial selected data and filter the undefined. (if exist)
   // set the corresponding left checkbox checked
   useEffect(() => {
+
     if (!dataSource.length || !props.value.length) {
+      const flatDataSource = flatTree(dataSource);
+      flatDataSource.map((item) => {
+        handleSetChecked(item, false);
+      })
+      setValue([]);
+      setSelected([]);
       return;
     }
-    console.log(props.value,'ggggg')
    
     // 初始化的时候，要看看子节点是否全被选中，如果全被选中，只需传他本身的value，如果子节点只是选中部分，则要把自己设置成不选择的状态
     const flatDataSource = flatTree(dataSource);
+    flatDataSource.map((item) => {
+      handleSetChecked(item, false);
+    })
+    
     const selectedArr = props.value
       .map((val: string | number) => {
         const selectedItem = flatDataSource.find((dataItem: DataProps) => dataItem.value === val);
@@ -111,11 +119,9 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
         if(!curData) return
         const {level} = curData;
         const curLevelAllData = flatDataSource.filter(item => item.level === level);
-      console.log(selectedItem,'selectedItem')
         handleSetChecked(selectedItem, true);
   
         const curLevelIsAllChecked = curLevelAllData.slice(1).every(item => item.checked === true);
-        console.log(curLevelIsAllChecked,'curLevelIsAllChecked')
         if (curLevelIsAllChecked) {
           handleSetChecked(curLevelAllData[0], true);
         }
@@ -123,7 +129,7 @@ const ReactCascaderTransfer = (props: CascaderTransferProps) => {
         return selectedItem;
       })
       .filter((dataItem: DataProps) => !!dataItem);
-
+console.log(selectedArr,'selectedArr')
     setValue(props.value);
     setSelected(selectedArr);
     setDataSource(dataSource);
