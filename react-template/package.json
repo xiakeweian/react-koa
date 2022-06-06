@@ -12,6 +12,7 @@
     "array-move": "^4.0.0",
     "axios": "^0.18.0",
     "bizcharts": "^3.5.10",
+    "dat.gui": "^0.7.9",
     "dva": "^2.4.1",
     "lodash": "^4.17.10",
     "lodash-decorators": "^5.0.0",
@@ -22,9 +23,12 @@
     "rc-drawer-menu": "^0.5.7",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-prism": "^4.3.2",
     "react-sortable-hoc": "^2.0.0",
+    "three": "^0.141.0",
     "umi": "^2.13.17",
-    "umi-plugin-react": "^1.15.8"
+    "umi-plugin-react": "^1.15.8",
+    "video-react": "^0.15.0"
   },
   "devDependencies": {
     "@types/history": "^4.7.11",

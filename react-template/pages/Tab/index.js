@@ -4,7 +4,8 @@ import { Tabs, Input, Button } from "antd";
 
 import { Form } from "@ant-design/compatible";
 
-import '@ant-design/compatible/assets/index.css';
+import "@ant-design/compatible/assets/index.css";
+import "./index.less";
 const { TabPane } = Tabs;
 
 let newTabIndex = 1;
@@ -135,6 +136,71 @@ class Tab extends React.Component {
             </Button>
           </Form.Item>
         </Form>
+
+        <div className="clip-path-test">
+          <div class="zz-containers">
+            <div class="zz-body-container">
+              <div class="fillet"></div>
+              <div class="fillet-yezi"></div>
+              <div class="fillet-yezi2"></div>
+              <div class="fillet-yezi3"></div>
+              <div class="fillet-yezi4"></div>
+              <div class="fillet-yezi4-line1"></div>
+              <div class="fillet-yezi4-line2"></div>
+              <div class="fillet-yezi4-shadow"></div>
+              <div class="fillet-yezi4-line3"></div>
+              <div class="fillet-yezi4-line4"></div>
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+              <div class="line4"></div>
+              <div class="line5"></div>
+              <div class="line6"></div>
+              <div class="line7"></div>
+              <div class="line8"></div>
+              <div class="line9"></div>
+              <div class="line10"></div>
+              <div class="line11"></div>
+              <div class="line12"></div>
+              <div class="line13"></div>
+              <div class="line14"></div>
+              <div class="line15"></div>
+              <div class="belt"></div>
+              <div class="mouth"></div>
+              <div class="mouth1"></div>
+              <div class="mouth2"></div>
+              <div class="eye-left"></div>
+              <div class="eye-left1"></div>
+              <div class="eye-left2"></div>
+              <div class="eye-right"></div>
+              <div class="eye-right1"></div>
+              <div class="eye-right2"></div>
+              <div class="rouge"></div>
+              <div class="rouge1"></div>
+              <div class="rouge2"></div>
+              <div class="rouge3"></div>
+              <div class="rouge4"></div>
+              <div class="rouge5"></div>
+              <div class="rouge6"></div>
+              <div class="rouge7"></div>
+              <div class="rouge8"></div>
+              <div class="rouge9"></div>
+              <div class="rouge10"></div>
+              <div class="other-line"></div>
+              <div class="other-line1"></div>
+              <div class="other-rectangle1"></div>
+              <div class="other-rectangle2"></div>
+              <div class="other-rectangle3"></div>
+              <div class="other-rectangle4"></div>
+              <div class="other-rectangle5"></div>
+              <div class="other-rectangle6"></div>
+              <div class="other-sweatdrop1"></div>
+              <div class="other-sweatdrop2"></div>
+              <div class="other-sweatdrop3"></div>
+              <div class="other-sweatdrop4"></div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

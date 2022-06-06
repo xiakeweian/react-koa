@@ -14,7 +14,7 @@ class UserCenter extends React.Component {
     const user = JSON.parse(localStorage.getItem("user"));
 
     getUser({ userId: user.userId }).then((res) => {
-      if (res.code === 1) {
+      if (res && res.code === 1) {
         this.props.form &&
           this.props.form.setFieldsValue({
             ...res.result,
@@ -32,7 +32,7 @@ class UserCenter extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         modifyUser({ ...values, userId: user.userId }).then((res) => {
-          if (res.code === 1) {
+          if (res && res.code === 1) {
             getUser({ userId: user.userId });
             this.setState({
               imageUrl: `${API_ROOT}${values.avatar}`,

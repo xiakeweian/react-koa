@@ -30,6 +30,46 @@ const routes = [
     _title_default: 'react-pc-template',
   },
   {
+    path: '/3d',
+    name: '3d',
+    component: require('../Three3D').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/city',
+    name: 'city',
+    component: require('../Three3D/City').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/human',
+    name: 'human',
+    component: require('../Three3D/Human').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/earth',
+    name: 'earth',
+    component: require('../Three3D/Earth1').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/star',
+    name: 'star',
+    component: require('../Three3D/Star').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
     path: '/',
     component: require('../../layouts').default,
     routes: [
@@ -327,6 +367,30 @@ const routes = [
           {
             path: '/tab',
             component: require('../Tab').default,
+            exact: true,
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+          {
+            component: () =>
+              React.createElement(
+                require('/Users/mlamp/Documents/mySpace/react-koa/react-template/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                  .default,
+                { pagesPath: 'pages', hasRoutesInConfig: true },
+              ),
+            _title: 'react-pc-template',
+            _title_default: 'react-pc-template',
+          },
+        ],
+        _title: 'react-pc-template',
+        _title_default: 'react-pc-template',
+      },
+      {
+        path: '/three',
+        routes: [
+          {
+            path: '/three',
+            component: require('../ThreeDom').default,
             exact: true,
             _title: 'react-pc-template',
             _title_default: 'react-pc-template',

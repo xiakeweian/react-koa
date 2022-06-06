@@ -10,6 +10,15 @@ export default [
     component: "./Register",
   },
   {
+    path: "/3d",
+    name: "3d",
+    component: "./Three3D",
+  },
+  { path: "/city", name: "city", component: "./Three3D/City" },
+  { path: "/human", name: "human", component: "./Three3D/Human" },
+  { path: "/earth", name: "earth", component: "./Three3D/Earth1" },
+  { path: "/star", name: "star", component: "./Three3D/Star" },
+  {
     path: "/",
     component: "../layouts",
     routes: [
@@ -107,6 +116,10 @@ export default [
       {
         path: "/tab",
         routes: [{ path: "/tab", component: "./Tab" }],
+      },
+      {
+        path: "/three",
+        routes: [{ path: "/three", component: "./ThreeDom" }],
       },
     ],
   },

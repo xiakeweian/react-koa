@@ -1,5 +1,7 @@
 /* @import "~antd/lib/style/themes/default.less"; */
 @import "~antd/dist/antd.css";
+@import "~video-react/dist/video-react.css";
+
 .content-wrap {
   overflow-y: auto;
 }

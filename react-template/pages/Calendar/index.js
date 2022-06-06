@@ -4,6 +4,7 @@ import { connect } from "dva";
 import TableCom from "./TableCom";
 import BarChart from "./BarChart";
 import moment from "moment";
+import VideoCom from "./Video";
 
 import styles from "./index.less";
 
@@ -78,14 +79,14 @@ const Calendar = (props) => {
           borderBottom: "16px solid #f0f2f5",
         }}
       >
-        {/* <Radio.Group
+        <Radio.Group
           options={dateData}
           onChange={handleChange}
           value={dateType}
           optionType="button"
           style={{ marginRight: 16 }}
-        /> */}
-        {/* <RangePicker
+        />
+        <RangePicker
           disabled={dateType !== "custom"}
           onChange={rangePickerChange}
         />
@@ -108,10 +109,10 @@ const Calendar = (props) => {
               <p>{total?.motorrad_total}</p>
             </div>
           </div>
-        </div> */}
+        </div>
         <BarChart data={data} />
       </Card>
-      {/* <Card title="月度表现趋势" bordered={false} style={{ width: "100%" }}>
+      <Card title="月度表现趋势" bordered={false} style={{ width: "100%" }}>
         <TableCom
           title="本月上线"
           data={trendList}
@@ -136,7 +137,9 @@ const Calendar = (props) => {
             )
           }
         />
-      </Card> */}
+      </Card>
+
+      <VideoCom />
     </div>
   );
 };

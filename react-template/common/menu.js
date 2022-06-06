@@ -81,6 +81,10 @@ const menuData = [
     name: "标签页",
     path: "tab",
   },
+  {
+    name: "Three",
+    path: "three",
+  },
 ];
 
 function formatter(data, parentPath = "/", parentAuthority) {

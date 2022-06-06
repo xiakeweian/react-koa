@@ -4,7 +4,7 @@ import { connect } from "dva";
 import { getMainCampaignId, getMainCampaignDetail } from "@/service/create";
 import router from "umi/router";
 import { Form } from "@ant-design/compatible";
-import '@ant-design/compatible/assets/index.css';
+import "@ant-design/compatible/assets/index.css";
 const { Option } = Select;
 
 @connect(({ campaign }) => ({
@@ -26,7 +26,7 @@ class Create extends React.Component {
     if (!params.id) {
       getMainCampaignId().then((res) => {
         console.log(res, "dddres");
-        if (res.code === 1) {
+        if (res && res.code === 1) {
           this.setState({
             campaign_id: res.result.id,
           });
