@@ -65,16 +65,11 @@ const Star = () => {
     // gui.add(controls, "rotateSystem");
     // controls.redraw();
 
-    function createParticles(
-      size,
-      transparent,
-      opacity,
-      vertexColors,
-      sizeAttenuation,
-      color
-    ) {
-      var range = 500;
-      const vertices = [];
+    function createParticles() {
+      var range = 1500;
+      const vertices = [],
+        color = new THREE.Color(),
+        colorArr = [];
       for (var i = 0; i < 15000; i++) {
         var particle = new THREE.Vector3(
           Math.random() * range - range / 2,
@@ -82,20 +77,25 @@ const Star = () => {
           Math.random() * range - range / 2
         );
         vertices.push(...particle);
+
+        colorArr.push(new THREE.Color(Math.random() * i * 0xff00ff));
       }
       var geom = new THREE.BufferGeometry();
       geom.setAttribute(
         "position",
         new THREE.Float32BufferAttribute(vertices, 3)
       );
+      console.log(colorArr, "ggggcolor");
+      geom.setAttribute("color", new THREE.Float32BufferAttribute(colorArr, 3));
+      //   geom.computeBoundingSphere();
       var material = new THREE.PointsMaterial({
-        color: new THREE.Color(Math.random() * i * 0xff00ff),
+        // size: 15,
+        color: "yellow",
+        // vertexColors: true,
       });
-      console.log(geom, "kkkgfggg");
-      //   geom.colors.push(new THREE.Color(Math.random() * i * 0xff00ff));
       cloud = new THREE.Points(geom, material);
       cloud.name = "particles";
-      console.log(cloud, "gggss");
+
       scene.add(cloud);
     }
 

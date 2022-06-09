@@ -16,8 +16,10 @@ export default [
   },
   { path: "/city", name: "city", component: "./Three3D/City" },
   { path: "/human", name: "human", component: "./Three3D/Human" },
-  { path: "/earth", name: "earth", component: "./Three3D/Earth1" },
+  { path: "/earth1", name: "earth1", component: "./Three3D/Earth1" },
+  { path: "/earth", name: "earth", component: "./Three3D/Earth" },
   { path: "/star", name: "star", component: "./Three3D/Star" },
+  { path: "/cube", name: "cube", component: "./Three3D/Cube" },
   {
     path: "/",
     component: "../layouts",

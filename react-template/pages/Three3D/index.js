@@ -3,7 +3,9 @@ import Link from "umi/link";
 import city from "../../assets/city.png";
 import human from "../../assets/human.png";
 import earth from "../../assets/earth.png";
+import earth1 from "../../assets/earth1.png";
 import star from "../../assets/star.png";
+import cube from "../../assets/cube.png";
 import "./index.less";
 import Star from "./Star";
 
@@ -31,11 +33,25 @@ const Three3D = () => {
       link: "/earth",
     },
     {
+      title: "地球2",
+      img: earth1,
+      id: 2,
+      content: "人类赖以生存的家园",
+      link: "/earth1",
+    },
+    {
       title: "星空",
       img: star,
       id: 3,
       content: "人类探索宇宙的梦想",
       link: "/star",
+    },
+    {
+      title: "立方体",
+      img: cube,
+      id: 4,
+      content: "立方体",
+      link: "/cube",
     },
   ];
   const renderList = (arr) => {

@@ -33,7 +33,6 @@ const City = () => {
       Renderer.forceContextLoss();
       Renderer.dispose();
       Scene.clear();
-    //   document && document.documentElement.removeChild(Stats.dom);
     };
   }, []);
 
