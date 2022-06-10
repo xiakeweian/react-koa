@@ -20,6 +20,8 @@ export default [
   { path: "/earth", name: "earth", component: "./Three3D/Earth" },
   { path: "/star", name: "star", component: "./Three3D/Star" },
   { path: "/cube", name: "cube", component: "./Three3D/Cube" },
+  { path: "/house", name: "house", component: "./Three3D/House" },
+  { path: "/bomb", name: "house", component: "./Three3D/Bomb" },
   {
     path: "/",
     component: "../layouts",

@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React from "react";
-import * as THREE from "three";
+import * as THREE from 'three'
 import Stats from "three/examples/jsm/libs/stats.module";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { TWEEN } from "three/examples/jsm/libs/tween.module.min.js";
-import CTMLoader from "./libs/CTMLoader";
+import "./libs/CTMLoader";
 import headModal from "./models/Head_02.ctm";
 import mapTexture from "./images/Head_02_Diffuse_2k.jpg";
 import bumpMapTexture from "./images/Head_02_Bump_2k.jpg";
@@ -43,7 +43,7 @@ export default class Human extends React.Component {
     init();
     animate();
     function init() {
-      container = document.getElementById("human");
+      container = document.getElementById("container");
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -213,7 +213,7 @@ export default class Human extends React.Component {
   render() {
     return (
       <div>
-        <div id="human"></div>
+        <div id="container"></div>
       </div>
     );
   }

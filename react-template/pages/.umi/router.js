@@ -86,6 +86,22 @@ const routes = [
     _title_default: 'react-pc-template',
   },
   {
+    path: '/house',
+    name: 'house',
+    component: require('../Three3D/House').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/bomb',
+    name: 'house',
+    component: require('../Three3D/Bomb').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
     path: '/',
     component: require('../../layouts').default,
     routes: [

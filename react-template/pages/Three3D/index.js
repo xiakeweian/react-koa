@@ -6,8 +6,8 @@ import earth from "../../assets/earth.png";
 import earth1 from "../../assets/earth1.png";
 import star from "../../assets/star.png";
 import cube from "../../assets/cube.png";
+import bomb from "../../assets/bomb.png";
 import "./index.less";
-import Star from "./Star";
 
 const Three3D = () => {
   const arr = [
@@ -52,6 +52,13 @@ const Three3D = () => {
       id: 4,
       content: "立方体",
       link: "/cube",
+    },
+    {
+      title: "爆炸体",
+      img: bomb,
+      id: 5,
+      content: "星球大爆炸",
+      link: "/bomb",
     },
   ];
   const renderList = (arr) => {
