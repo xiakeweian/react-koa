@@ -22,6 +22,12 @@ export default [
   { path: "/cube", name: "cube", component: "./Three3D/Cube" },
   { path: "/house", name: "house", component: "./Three3D/House" },
   { path: "/bomb", name: "house", component: "./Three3D/Bomb" },
+  { path: "/universe", name: "universe", component: "./Three3D/Universe" },
+  {
+    path: "/universe1",
+    name: "universe1",
+    component: "./Three3D/Universe/index1.js",
+  },
   {
     path: "/",
     component: "../layouts",

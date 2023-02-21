@@ -102,6 +102,22 @@ const routes = [
     _title_default: 'react-pc-template',
   },
   {
+    path: '/universe',
+    name: 'universe',
+    component: require('../Three3D/Universe').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
+    path: '/universe1',
+    name: 'universe1',
+    component: require('../Three3D/Universe/index1.js').default,
+    exact: true,
+    _title: 'react-pc-template',
+    _title_default: 'react-pc-template',
+  },
+  {
     path: '/',
     component: require('../../layouts').default,
     routes: [

@@ -60,6 +60,13 @@ const Three3D = () => {
       content: "星球大爆炸",
       link: "/bomb",
     },
+    {
+      title: "光亮材质",
+      img: phong,
+      id: 6,
+      content: "光亮材质来了",
+      link: "/phong",
+    },
   ];
   const renderList = (arr) => {
     return arr.map((item) => {
